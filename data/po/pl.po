@@ -1,0 +1,404 @@
+msgid "IDS_CLICK"
+msgstr "pociśnij"
+
+msgid "IDS_DOUBLE"
+msgstr "ciśnij"
+
+msgid "IDS_PRESS"
+msgstr "wciśnij"
+
+msgid "IDS_FREE"
+msgstr "zwolnij"
+
+msgid "IDS_DEFAULT"
+msgstr "domyślne"
+
+msgid "IDS_HELP"
+msgstr "pomoc"
+
+msgid "IDS_DOWN"
+msgstr "dół"
+
+msgid "IDS_UP"
+msgstr "góra"
+
+msgid "IDS_CHANGE"
+msgstr "zmień"
+
+msgid "IDS_LEFT"
+msgstr "lewo"
+
+msgid "IDS_CENTER"
+msgstr "środek"
+
+msgid "IDS_RIGHT"
+msgstr "prawo"
+
+msgid "IDS_SHOW"
+msgstr "pokaż"
+
+msgid "IDS_HIDE"
+msgstr "ukryj"
+
+msgid "IDS_TOP"
+msgstr "wierzch"
+
+msgid "IDS_BOTTOM"
+msgstr "spód"
+
+msgid "IDS_IN"
+msgstr "do"
+
+msgid "IDS_OUT"
+msgstr "z"
+
+msgid "IDS_FIT"
+msgstr "dopasuj"
+
+msgid "IDS_FIT_IN"
+msgstr "pasuj"
+
+msgid "IDS_FILL"
+msgstr "wypełnij"
+
+msgid "IDS_MORE_ALFA"
+msgstr "więcej alfa"
+
+msgid "IDS_LESS_ALFA"
+msgstr "mniej alfa"
+
+msgid "IDS_RED_MORE"
+msgstr "więcej czerwieni"
+
+msgid "IDS_RED_LESS"
+msgstr "mniej czerwieni"
+
+msgid "IDS_GREEN_MORE"
+msgstr "więcej zieleni"
+
+msgid "IDS_GREEN_LESS"
+msgstr "mniej zielni"
+
+msgid "IDS_BLUE_MORE"
+msgstr "więcej niebieskiego"
+
+msgid "IDS_BLUE_LESS"
+msgstr "mniej niebieskiego"
+
+msgid "IDS_EDIT"
+msgstr "edytuj"
+
+msgid "IDS_DONE"
+msgstr "zatwierdź"
+
+msgid "IDS_HOUR_UP"
+msgstr "godzina więcej"
+
+msgid "IDS_HOUR_DOWN"
+msgstr "godzina mniej"
+
+msgid "IDS_MINUTE_UP"
+msgstr "minuta więcej"
+
+msgid "IDS_MINUTE_DOWN"
+msgstr "minuta mniej"
+
+msgid "IDS_SECOND_UP"
+msgstr "sekunda więcej"
+
+msgid "IDS_SECOND_DOWN"
+msgstr "sekunda mniej"
+
+msgid "IDS_NEXT"
+msgstr "następny"
+
+msgid "IDS_PREVIOUS"
+msgstr "poprzedni"
+
+msgid "IDS_ADD"
+msgstr "dodaj"
+
+msgid "IDS_ALPHA"
+msgstr "Alfa"
+
+msgid "IDS_BRAVO"
+msgstr "Bravo"
+
+msgid "IDS_CHARLIE"
+msgstr "Charlie"
+
+msgid "IDS_DELTA"
+msgstr "Delta"
+
+msgid "IDS_ECHO"
+msgstr "Echo"
+
+msgid "IDS_FOXTROT"
+msgstr "Foxtrot"
+
+msgid "IDS_GOLF"
+msgstr "Golf"
+
+msgid "IDS_HOTEL"
+msgstr "Hotel"
+
+msgid "IDS_INDIA"
+msgstr "India"
+
+msgid "IDS_JULIET"
+msgstr "Juliet"
+
+msgid "IDS_KILO"
+msgstr "Kilo"
+
+msgid "IDS_LIMA"
+msgstr "Lima"
+
+msgid "IDS_MIKE"
+msgstr "Mike"
+
+msgid "IDS_NOVEMBER"
+msgstr "November"
+
+msgid "IDS_OSCAR"
+msgstr "Oscar"
+
+msgid "IDS_PAPA"
+msgstr "Papa"
+
+msgid "IDS_QUEBEC"
+msgstr "Quebec"
+
+msgid "IDS_ROMEO"
+msgstr "Romeo"
+
+msgid "IDS_SIERRA"
+msgstr "Sierra"
+
+msgid "IDS_TANGO"
+msgstr "Tango"
+
+msgid "IDS_UNIFORM"
+msgstr "Uniform"
+
+msgid "IDS_VICTOR"
+msgstr "Victor"
+
+msgid "IDS_WHISKEY"
+msgstr "Whiskey"
+
+msgid "IDS_X_RAY"
+msgstr "Xray"
+
+msgid "IDS_YANKEE"
+msgstr "Yankee"
+
+msgid "IDS_ZULU"
+msgstr "Zulu"
+
+msgid "IDS_BACK"
+msgstr "wstecz"
+
+msgid "IDS_MONDAY"
+msgstr "poniedziałek"
+
+msgid "IDS_TUESDAY"
+msgstr "wtorek"
+
+msgid "IDS_WEDNESDAY"
+msgstr "środa"
+
+msgid "IDS_THURSDAY"
+msgstr "czwartek"
+
+msgid "IDS_FRIDAY"
+msgstr "piątek"
+
+msgid "IDS_SATURDAY"
+msgstr "sobota"
+
+msgid "IDS_SUNDAY"
+msgstr "niedziela"
+
+msgid "IDS_MORECOLOR"
+msgstr "kolorowy"
+
+msgid "IDS_LESSCOLOR"
+msgstr "szary"
+
+msgid "IDS_SATURATE"
+msgstr "nasyć"
+
+msgid "IDS_UNSATURATE"
+msgstr "nienasycony"
+
+msgid "IDS_BRIGHTER"
+msgstr "jasny"
+
+msgid "IDS_DARKER"
+msgstr "ciemny"
+
+msgid "IDS_OK"
+msgstr "ok"
+
+msgid "IDS_CANCEL"
+msgstr "anuluj"
+
+msgid "IDS_FILES"
+msgstr "pliki"
+
+msgid "IDS_BUTTON"
+msgstr "przycisk"
+
+msgid "IDS_BUBBLE"
+msgstr "dymek"
+
+msgid "IDS_IMAGE"
+msgstr "obraz"
+
+msgid "IDS_FRAME"
+msgstr "ramka"
+
+msgid "IDS_VIDEO"
+msgstr "video"
+
+msgid "IDS_FLIP"
+msgstr "flip"
+
+msgid "IDS_PHOTOCAM"
+msgstr "photocam"
+
+msgid "IDS_THUMBNAIL"
+msgstr "miniatura"
+
+msgid "IDS_SPINNER"
+msgstr "spinner"
+
+msgid "IDS_PHOTO"
+msgstr "foto"
+
+msgid "IDS_MENU"
+msgstr "menu"
+
+msgid "IDS_CLOCK"
+msgstr "zegar"
+
+msgid "IDS_MAP"
+msgstr "mapa"
+
+msgid "IDS_YES"
+msgstr "tak"
+
+msgid "IDS_NO"
+msgstr "nie"
+
+msgid "IDS_FIRST"
+msgstr "pierwszy"
+
+msgid "IDS_SECOND"
+msgstr "drugi"
+
+msgid "IDS_THIRD"
+msgstr "trzeci"
+
+msgid "IDS_FOURTH"
+msgstr "czwarty"
+
+msgid "IDS_CHOICE"
+msgstr "wybór"
+
+msgid "IDS_PAGE"
+msgstr "strona"
+
+msgid "IDS_CUBE"
+msgstr "sześcian"
+
+msgid "IDS_ROTATE"
+msgstr "obrót"
+
+msgid "IDS_VERTICAL"
+msgstr "pionowy"
+
+msgid "IDS_HORIZONTAL"
+msgstr "poziomy"
+
+msgid "IDS_ALARM"
+msgstr "alarm"
+
+msgid "IDS_DECISION"
+msgstr "decyzja"
+
+msgid "IDS_NUMBERS"
+msgstr "liczby"
+
+msgid "IDS_TOP_LEFT"
+msgstr "lewy górny"
+
+msgid "IDS_TOP_RIGHT"
+msgstr "prawy górny"
+
+msgid "IDS_BOTTOM_LEFT"
+msgstr "lewy dolny"
+
+msgid "IDS_BOTTOM_RIGHT"
+msgstr "prawy dolny"
+
+msgid "IDS_HOME"
+msgstr "home"
+
+msgid "IDS_DELETE"
+msgstr "usuń"
+
+msgid "IDS_INDEX"
+msgstr "indeks"
+
+msgid "IDS_FILE"
+msgstr "plik"
+
+msgid "IDS_LIST"
+msgstr "lista"
+
+msgid "IDS_REWIND"
+msgstr "do tyłu"
+
+msgid "IDS_PLAY"
+msgstr "start"
+
+msgid "IDS_PAUSE"
+msgstr "pauza"
+
+msgid "IDS_FORWARD"
+msgstr "do przodu"
+
+msgid "IDS_HUE"
+msgstr "Odcień"
+
+msgid "IDS_SATURATION"
+msgstr "Nasycenie"
+
+msgid "IDS_LIGHTNESS"
+msgstr "Jasność"
+
+msgid "IDS_SEND"
+msgstr "WYŚLIJ"
+
+msgid "IDS_YEAR"
+msgstr "rok"
+
+msgid "IDS_MONTH"
+msgstr "miesiąc"
+
+msgid "IDS_DAY"
+msgstr "dzień"
+
+msgid "IDS_HOUR"
+msgstr "godzina"
+
+msgid "IDS_MINUTE"
+msgstr "minuta"
+
+msgid "IDS_PLAYER"
+msgstr "odtwarzacz"
+
+msgid "IDS_TOOLBAR"
+msgstr "toolbar"

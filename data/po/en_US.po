@@ -1,0 +1,104 @@
+msgid "IDS_SCROLL_UP"
+msgstr "scroll up"
+
+msgid "IDS_SCROLL_DOWN"
+msgstr "scroll down"
+
+msgid "IDS_CENTER"
+msgstr "center"
+
+msgid "IDS_SCROLL_LEFT"
+msgstr "scroll left"
+
+msgid "IDS_SCROLL_RIGHT"
+msgstr "scroll right"
+
+msgid "IDS_UP"
+msgstr "up"
+
+msgid "IDS_DOWN"
+msgstr "down"
+
+msgid "IDS_LEFT"
+msgstr "left"
+
+msgid "IDS_RIGHT"
+msgstr "right"
+
+msgid "IDS_HOME"
+msgstr "home"
+
+msgid "IDS_END"
+msgstr "end"
+
+msgid "IDS_OUT"
+msgstr "out"
+
+msgid "IDS_IN"
+msgstr "in"
+
+msgid "IDS_FILL"
+msgstr "fill"
+
+msgid "IDS_PRESS"
+msgstr "press"
+
+msgid "IDS_FREE"
+msgstr "free"
+
+msgid "IDS_EDIT"
+msgstr "edit"
+
+msgid "IDS_DONE"
+msgstr "done"
+
+msgid "IDS_HOUR_UP"
+msgstr "hourup"
+
+msgid "IDS_HOUR_DOWN"
+msgstr "hourdown"
+
+msgid "IDS_MINUTE_UP"
+msgstr "minuteup"
+
+msgid "IDS_MINUTE_DOWN"
+msgstr "minutedown"
+
+msgid "IDS_SECOND_UP"
+msgstr "secondup"
+
+msgid "IDS_SECOND_DOWN"
+msgstr "seconddown"
+
+msgid "IDS_MONDAY"
+msgstr "Monday"
+
+msgid "IDS_TUESDAY"
+msgstr "Tuesday"
+
+msgid "IDS_WEDNESDAY"
+msgstr "Wednesday"
+
+msgid "IDS_THURSDAY"
+msgstr "Thursday"
+
+msgid "IDS_FRIDAY"
+msgstr "Friday"
+
+msgid "IDS_SATURDAY"
+msgstr "Saturday"
+
+msgid "IDS_SUNDAY"
+msgstr "Sunday"
+
+msgid "IDS_BACK"
+msgstr "back"
+
+msgid "IDS_HUE"
+msgstr "hue"
+
+msgid "IDS_SATURATION"
+msgstr "saturation"
+
+msgid "IDS_LIGHTNESS"
+msgstr "lightness"

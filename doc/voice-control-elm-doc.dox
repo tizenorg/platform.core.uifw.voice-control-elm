@@ -1,0 +1,276 @@
+/**
+
+
+* @defgroup voice-control-elm-devguide voice-control-elm Developer Guide
+*
+*
+* @addtogroup voice-control-elm-devguide
+* @{
+*
+* @brief This document is a guide to EFL application developers helping to use voice-control-elm to enable voice-driven UI control in the application.
+* @section voice-control-elm-devguide_TOC Table of Contents
+* @ref voice-control-elm-devguide_INTRO \n
+* In this section you will find basic explanation of voice-control-elm, its default settings and a brief description of additional API.\n\n
+* @ref voice-control-elm-devguide_QUICKSTART \n
+* In this section you will find how to provide your Elementary widgets-based app with voice control with its default settings.\n\n
+* @ref voice-control-elm-devguide_DEFAULT_WIDGETS \n
+* Here you will find list of all Elementary widgets that are supported by default.\n\n
+* @ref voice-control-elm-devguide_HINTSENABLE \n
+* In this section you will learn how to use API to disable and enable widgets' hints.\n\n
+* @ref voice-control-elm-devguide_HINTSCUSTOM \n
+* In this section you will learn how to use API to create hints with custom names and positions.\n\n
+* @ref voice-control-elm-devguide_CUSTOMWIDGETS \n
+* In this section you will learn how to use API to support custom widgets.\n\n
+* @ref voice-control-elm-devguide_CLIPBOARD \n
+* In this section you will learn how to use API to support clipboard operations.\n\n
+* @ref voice-control-elm-devguide_CUSTOMCMD \n
+* In this section you will learn how to use API to support custom voice commands in your application.\n\n
+* 
+* 
+* @section voice-control-elm-devguide_INTRO Introduction
+* voice-control-elm API is provided for controlling EFL widgets by voice commands.
+* UI voice control provided by voice-control-elm is done the following way:\n
+* - Each Elementary widget supported and currently visible in the application 
+* is given a text hint.\n
+* - Widget hints are shown on the User's wish (currently hints are shown when the
+* Volume Up hardware button is pressed).
+* - While still pressing the Volume Up button, User speaks the hint name of the
+* widget he/she wants to trigger and the action he/she wants to perform on that
+* widget. 
+* - When the Volume Up button is released, the voice command is interpreted and
+* the requested action on the widget is performed.
+* - When User speaks only the widget's hint name, default action is performed,
+* usually "Click".
+* 
+* By default voice-control-elm provides support for a selection of operations on
+* Elementary widgets (see @ref voice-control-elm-devguide_SUPPORTED_WIDGETS_TABLE),
+* automatic hints layout and hint names generation. \n
+* 
+* @image html sample_app_hints.png Example: your application layout with voice-control-elm enabled with default settings.
+* 
+* Additionally, the API is provided, which allows the developer enabling voice
+* commands support for custom widgets, switching off/on hint labels for chosen
+* widgets and changing the hint label text from default to custom.
+* 
+* @section voice-control-elm-devguide_QUICKSTART Quick start guide
+* @brief In this section you will learn how to configure your app to work with 
+* default voice-control-elm support, which means voice control support for default
+* Elementary widgets and automatic hints' names and layout generation.
+* @details 
+* Whole voice-control-elm API is included in voice_control_elm.h header file. To use
+* voice-control-elm module inclusion of this file is needed.  Assuming that
+* appcore-efl  API is used for main loop, vc_elm_initialize() function should
+* be called in create callback and call vc_elm_shutdown() function in terminate
+*  callback. Here is an example code:
+* @code
+* #include <appcore-efl.h>
+* #include <voice_control_elm.h>
+*
+* static int _create_app(void *data)
+* {
+*	vc_elm_initialize();
+* 	return 0;
+* }
+* 
+* static int _terminate_app(void *data)
+* {
+*	vc_elm_shutdown();
+* 	return 0;
+* }
+ 
+* int main(int argc, char **argv)
+* {
+* 	struct appcore_ops ops =
+* 	{
+* 		.create = _create_app,
+* 		.pause = NULL,
+* 		.resume = NULL,
+* 		.reset = NULL,
+* 		.terminate = _terminate_app,
+* 	};
+* 	ops.data = NULL;
+* 	return appcore_efl_main("example", &argc, &argv, &ops);
+* }
+* @endcode
+* Rpm implementation doesn’t handle security issues, therefore plug-in is
+* needed. In Tizen OS MSM plug-in is used which requires a manifest file - an
+* xml file which specifies the access control domain in which their application
+* should be running and potentially additional security policies for the
+* application. To set properly application’s permission include following
+* lines in manifest file:
+* @code
+* <define>
+* 	<domain name="mydomain"/>
+* 	<permit>
+*		<smack permit="vc-server" type="rwx" />
+*		<smack permit="dbus" type="rwx" />
+*	</permit>
+*	<request>
+*		<smack request="dbus" type="rwx" />
+*		<smack request="sound_server" type="rw" />
+*		<smack request="vc-server" type="rwx" />
+*	</request>
+* </define>
+* @endcode
+
+* First line in define section defines a new domain with name mydomain. The
+* permit section allows some vc-server and dbus domains to have write, read
+* and execute access to newly defined mydomain domain. The request section
+* requests for the newly created mydomain domain to have write, read and
+* execute access to the dbus, sound_server and  vc-server domains.
+*
+* To build application with GBS add checking for the presence of voice-control-elm
+*  package in CMakeLists.txt:
+* @code
+* pkg_check_modules(BASE_PKG REQUIRED ... voice-control-elm)
+* @endcode
+* and add voice-control-elm to list of required packages in .spec  file:
+* @code
+* BuildRequires:  pkgconfig(voice-control-elm)
+* @endcode
+* 
+* At this moment you will have working application with default widgets'
+* operations supported and with automatically created and positioned widgets'
+* hints.
+*
+* @section voice-control-elm-devguide_DEFAULT_WIDGETS Default supported widgets
+* The list of supported widgets and commands can be found here:
+* @ref voice-control-elm-devguide_SUPPORTED_WIDGETS_TABLE
+*
+* @section voice-control-elm-devguide_HINTSENABLE Enabling/disabling displaying of widget hints
+* The hint which is visible on screen can be hidden manually by calling
+* vc_elm_object_hint_hide(). If the hint was made hidden by calling
+* vc_elm_object_hint_hide(), it can be showed by vc_elm_object_hint_show()
+* function if it will be visible on screen and only for recognized widgets.
+* If you still want to show the hint you can use
+* vc_elm_object_force_item_hint_show() function which will show the hint even
+* though it is considered unvisible by vc_widet_elm module. However, it will
+* work only for following widgets: list, ctxpopup, genlist, gengrid, toolbar,
+* segment_control.
+*
+* @section voice-control-elm-devguide_HINTSCUSTOM Customizing widget hints' names and position
+* In this section, you will get to know how to add custom hints to widgets
+* (custom hint name and orientation).\n
+* @par Custom hint name \n
+* When you run your application with voice-control-elm enabled and take no
+* additional actions, the hints will be generated automatically for each
+* supported widget. So in case of such situation:
+* @code
+  submit_btn = elm_button_add(win);
+  elm_object_text_set(submit_btn, "Submit");
+  evas_object_show(submit_btn);
+* @endcode
+* you will see the button with text "Submit" and on voice-control-elm activation,
+* the hint with autogenerated name (for example "Alpha") will be displayed by
+* this button in the automatically chosen place. Saying "Alpha" will trigger
+* "click" operation on the button.\n
+* However you can change the hint name using #vc_elm_object_hint_set function.
+* @code
+  submit_btn = elm_button_add(win);
+  vc_elm_object_hint_set(submit_btn, "Submit");
+  elm_object_text_set(submit_btn, "Submit");
+  evas_object_show(submit_btn);
+* @endcode
+* In this case you will see the button with text "Submit" and on voice-control-elm
+* activation, the hint "Submit" will be displayed by this button. Saying
+* "Submit" will trigger "click" operation on the button.\n
+* Analogically, the function #vc_elm_item_object_hint_set is available for
+* setting the custom hints for the elements of containers such as elm_list.\n
+* @par Turning on/off autogenerated hints \n
+* If you want to disable all hints that were not generated by you using the
+* functions above, you can use #vc_elm_name_autogen_enable with EINA_FALSE as
+* an argument. You turn it on again with EINA_TRUE.
+* @par Custom hint position \n
+* When not defined by application developer, widgets' hints are located
+* at most suitable places, as calculated by algorithm. The main purpose for
+* that is to set them so they do not cover each other. It is the best way of
+* displaying widgets' hints in UI with dynamically changing content.\n
+* However sometimes you may want to define exactly where the hint should be
+* shown. In this case you should call #vc_elm_object_hint_direction_set. This
+* function forces the hint position as related to the widget. The positions
+* available are defined by the #vc_elm_direction_e enum.\n
+* 
+* @image html hints_orientation.png Example: various hints orientations.
+* 
+* The similar function exists for containers' subitems.
+* If you want to set the hints' positions for all widget subitems (for example
+* list items), you call #vc_elm_sub_item_hint_direction_set.
+* However notice that you set as the parameter the parent object (the container
+* widget, not the subobject item) and as a result you can only set the same
+* relative position of tooltips for all widget's subitems.\n
+* 
+* @image html subitem_hints_left_and_right.png Example: the list subitems hints with direction set to VC_ELM_SUB_ITEM_DIRECTION_LEFT and VC_ELM_SUB_ITEM_DIRECTION_RIGHT. Notice that when the hint is located inside the object, it contains no arrow even if it is not in the center of the item.
+* 
+* You can also get the current relative position of subobject hints by using
+* #vc_elm_sub_item_hint_direction_get function.
+* 
+* @section voice-control-elm-devguide_CUSTOMWIDGETS Registering own widgets and actions supported for them.
+* You can register your own widgets by calling vc_elm_register_widget()
+* function. It is recommended to use evas_object_data_set() to obtain widget
+* name (see #VC_ELM_CUSTOM_WIDGET_NAME). Second and third argument are not used
+* and should have NULL values. If widget is a container, the callback for
+* getting subobjects should be passed as fourth argument, otherwise NULL value.
+*  For one widget you can register more than one action by calling
+*  vc_elm_register_action().
+*
+* @section voice-control-elm-devguide_CLIPBOARD Enabling clipboard (copy/paste) operations support
+* Clipboard operations supports only container widgets. To perform clipboard
+* operation do long press on an element. The popup with available operations
+* show up and you will be able to choose one of them by voice command. To
+* determine which operations will be available define filter callback returning
+*  flags from #vc_elm_copy_paste_flags_e enum. \n
+* @code
+* static vc_elm_copy_paste_flags_e filter_cb(Evas_Object* o, void* event_data)
+* {
+*	vc_elm_copy_paste_flags_e flags = VC_ELM_COPY_PASTE_FLAGS_NONE;
+*	if (event_data)
+*	{
+*		flags = flags | VC_ELM_COPY_PASTE_FLAGS_CUT | VC_ELM_COPY_PASTE_FLAGS_COPY;
+*	}
+*	else
+*	{
+*		flags = flags | VC_ELM_COPY_PASTE_FLAGS_ALL;
+*	}
+*	(void)o;
+*	return flags;
+* }
+* @endcode
+*
+* To determine action performed after receiving clipboard command define
+* another callback:
+* @code
+* static void  copy_mode_cb(Evas_Object* o, vc_elm_copy_paste_flags_e cmd, void* event_data)
+* {
+*  	if (VC_ELM_COPY_PASTE_FLAGS_CUT == cmd)
+* 	{
+*		//handle cut command here
+*  	}
+* 	else if (VC_ELM_COPY_PASTE_FLAGS_COPY == cmd)
+*  	{
+*		//handle copy command here
+*  	}
+*	else if (VC_ELM_COPY_PASTE_FLAGS_PASTE == cmd)
+*	{
+*		//handle paste command here
+*	}
+* }
+* @endcode
+*
+* To enable clipboard operations call vc_elm_object_copy_paste_enable_set
+* function passing widget object and above callbacks :
+* @code
+* vc_elm_object_copy_paste_enable_set(genlist, copy_mode_cb, filter_cb);
+* @endcode
+* 
+* @section voice-control-elm-devguide_CUSTOMCMD Customizing voice commands
+* There is the set of default voice commands, but can also define your own.
+* To add a new command call vc_elm_custom_command_add() function with the name
+* of command as argument. You can add more than one custom command. There is
+* also vc_elm_custom_command_del() function which deletes the command with
+* given name. To define action performed after custom command was recognized,
+* use vc_elm_custom_command_callback_add(). You can register only one callback
+* for all custom commands and only one time. Please note that these functions
+* don’t assign anything to widgets.
+* 
+* @}
+*/

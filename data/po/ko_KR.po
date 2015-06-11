@@ -1,0 +1,104 @@
+msgid "IDS_SCROLL_UP"
+msgstr "위로 스크롤"
+
+msgid "IDS_SCROLL_DOWN"
+msgstr "아래로 스크롤"
+
+msgid "IDS_CENTER"
+msgstr "가운데"
+
+msgid "IDS_SCROLL_LEFT"
+msgstr "왼쪽으로 스크롤"
+
+msgid "IDS_SCROLL_RIGHT"
+msgstr "오른쪽으로 스크롤"
+
+msgid "IDS_UP"
+msgstr "위로"
+
+msgid "IDS_DOWN"
+msgstr "아래로"
+
+msgid "IDS_LEFT"
+msgstr "왼쪽으로"
+
+msgid "IDS_RIGHT"
+msgstr "오른쪽으로"
+
+msgid "IDS_HOME"
+msgstr "처음"
+
+msgid "IDS_END"
+msgstr "끝"
+
+msgid "IDS_OUT"
+msgstr "축소"
+
+msgid "IDS_IN"
+msgstr "확대"
+
+msgid "IDS_FILL"
+msgstr "전체"
+
+msgid "IDS_PRESS"
+msgstr "누르기"
+
+msgid "IDS_FREE"
+msgstr "떼기"
+
+msgid "IDS_EDIT"
+msgstr "편집"
+
+msgid "IDS_DONE"
+msgstr "완료"
+
+msgid "IDS_HOUR_UP"
+msgstr "시간 증가"
+
+msgid "IDS_HOUR_DOWN"
+msgstr "시간 감소"
+
+msgid "IDS_MINUTE_UP"
+msgstr "분 증가"
+
+msgid "IDS_MINUTE_DOWN"
+msgstr "분 감소"
+
+msgid "IDS_SECOND_UP"
+msgstr "초 증가"
+
+msgid "IDS_SECOND_DOWN"
+msgstr "초 감소"
+
+msgid "IDS_MONDAY"
+msgstr "월요일"
+
+msgid "IDS_TUESDAY"
+msgstr "화요일"
+
+msgid "IDS_WEDNESDAY"
+msgstr "수요일"
+
+msgid "IDS_THURSDAY"
+msgstr "목요일"
+
+msgid "IDS_FRIDAY"
+msgstr "금요일"
+
+msgid "IDS_SATURDAY"
+msgstr "토요일"
+
+msgid "IDS_SUNDAY"
+msgstr "일요일"
+
+msgid "IDS_BACK"
+msgstr "뒤로"
+
+msgid "IDS_HUE"
+msgstr "색깔"
+
+msgid "IDS_SATURATION"
+msgstr "채도"
+
+msgid "IDS_LIGHTNESS"
+msgstr "명도"

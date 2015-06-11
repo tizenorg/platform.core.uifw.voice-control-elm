@@ -1,0 +1,43 @@
+#define OFF_MINUS -7
+#define OFF_PLUS 5
+#define SIZE 12
+#define VISI 0
+collections {
+	group {
+		name: "tip_group";
+
+		parts {
+			part {
+				name: "bg";
+				type: SWALLOW;
+
+				description {
+					state: "default" 0.0;
+					visible: 1;
+				}
+			}
+
+
+
+			part {
+				name: "content";
+				type: SWALLOW;
+				mouse_events: 0;
+				description {
+					state: "default" 0.0;
+					color: 130 200 228 128;
+					visible: 1;
+					rel1 {
+						to: "bg";
+						relative: 0.2 0.2;
+					}
+					rel2 {
+						to: "bg";
+						relative: 0.8 0.8;
+					}
+				}
+			}
+		}
+
+	}
+}

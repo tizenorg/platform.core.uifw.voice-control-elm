@@ -1,0 +1,3157 @@
+/**
+ * 
+ * @addtogroup voice-control-elm-devguide
+ * @{
+ * @section voice-control-elm-devguide_SUPPORTED_WIDGETS_TABLE APPENDIX: Supported default Elementary widgets
+ * 
+ * @htmlonly
+
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1250">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 12">
+<link rel=File-List href="vc-widget-elm_%20commands_files/filelist.xml">
+<style id="voice-control-elm_ commands_1608_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:" ";}
+.xl151608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:238;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl631608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl641608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:2.0pt double windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl651608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:2.0pt double windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl661608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl671608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl681608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl691608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl701608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl711608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:2.0pt double windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl721608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:none;
+	border-bottom:2.0pt double windowtext;
+	border-left:2.0pt double windowtext;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl731608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:none;
+	border-bottom:2.0pt double windowtext;
+	border-left:none;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl741608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:none;
+	border-bottom:2.0pt double windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl751608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:2.0pt double windowtext;
+	border-left:none;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl761608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:none;
+	border-bottom:2.0pt double windowtext;
+	border-left:none;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl771608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl781608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:2.0pt double windowtext;
+	border-left:2.0pt double windowtext;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl791608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:2.0pt double windowtext;
+	border-left:none;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl801608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:2.0pt double windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl811608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl821608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:8.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:none;
+	border-bottom:2.0pt double windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl831608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:none;
+	border-bottom:2.0pt double windowtext;
+	border-left:2.0pt double windowtext;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl841608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl851608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:2.0pt double windowtext;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl861608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:2.0pt double windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl871608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl881608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl891608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:2.0pt double windowtext;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl901608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:2.0pt double windowtext;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl911608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl921608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:2.0pt double windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl931608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:2.0pt double windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl941608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl951608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:2.0pt double windowtext;
+	border-left:2.0pt double windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl961608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:none;
+	border-bottom:2.0pt double windowtext;
+	border-left:2.0pt double windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl971608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:2.0pt double windowtext;
+	border-left:2.0pt double windowtext;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl981608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl991608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1001608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1011608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1021608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1031608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1041608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:2.0pt double windowtext;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1051608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1061608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1071608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1081608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1091608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:none;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1101608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1111608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#D8D8D8;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1121608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:none;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1131608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:1.0pt solid windowtext;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1141608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1151608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1161608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#D8D8D8;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1171608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:1.0pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1181608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#D8D8D8;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1191608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#D8D8D8;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1201608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1211608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:1.0pt solid windowtext;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1221608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:1.0pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1231608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#D8D8D8;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1241608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, serif;
+	mso-font-charset:238;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#D8D8D8;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1251608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#D8D8D8;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1261608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1271608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:2.0pt double windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1281608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1291608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1301608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#D8D8D8;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl1311608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1321608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1331608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1341608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, monospace;
+	mso-font-charset:129;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:2.0pt double windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1351608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, serif;
+	mso-font-charset:238;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl1361608
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Cambria, serif;
+	mso-font-charset:238;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+-->
+</style>
+</head>
+
+<body>
+<!--[if !excel]>&nbsp;&nbsp;<![endif]-->
+<!--The following information was generated by Microsoft Office Excel's Publish
+as Web Page wizard.-->
+<!--If the same item is republished from Excel, all information between the DIV
+tags will be replaced.-->
+<!----------------------------->
+<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD -->
+<!----------------------------->
+
+<div id="voice-control-elm_ commands_1608" align=center x:publishsource="Excel">
+
+<table border=0 cellpadding=0 cellspacing=0 width=1193 style='border-collapse:
+ collapse;table-layout:fixed;width:895pt'>
+ <col width=91 style='mso-width-source:userset;mso-width-alt:3328;width:68pt'>
+ <col width=78 style='mso-width-source:userset;mso-width-alt:2852;width:59pt'>
+ <col width=64 span=16 style='width:48pt'>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl151608 colspan=6 width=425 style='height:15.75pt;
+  width:319pt'>voice-control-elm - supported commands for Elementary widgets:</td>
+  <td class=xl151608 width=64 style='width:48pt'></td>
+  <td class=xl151608 width=64 style='width:48pt'></td>
+  <td class=xl151608 width=64 style='width:48pt'></td>
+  <td class=xl151608 width=64 style='width:48pt'></td>
+  <td class=xl151608 width=64 style='width:48pt'></td>
+  <td class=xl151608 width=64 style='width:48pt'></td>
+  <td class=xl151608 width=64 style='width:48pt'></td>
+  <td class=xl151608 width=64 style='width:48pt'></td>
+  <td class=xl151608 width=64 style='width:48pt'></td>
+  <td class=xl151608 width=64 style='width:48pt'></td>
+  <td class=xl151608 width=64 style='width:48pt'></td>
+  <td class=xl151608 width=64 style='width:48pt'></td>
+ </tr>
+ <tr height=34 style='height:25.5pt'>
+  <td rowspan=2 height=69 class=xl1311608 width=91 style='height:51.75pt;
+  width:68pt'>Widget Type</td>
+  <td rowspan=2 class=xl1331608 width=78 style='border-bottom:2.0pt double black;
+  width:59pt'>sub widget</td>
+  <td class=xl1041608 width=64 style='width:48pt'>Action</td>
+  <td class=xl1051608 width=64 style='width:48pt'>click</td>
+  <td class=xl1061608 width=64 style='border-left:none;width:48pt'>scroll up</td>
+  <td class=xl1061608 width=64 style='border-left:none;width:48pt'>scroll down</td>
+  <td class=xl1061608 width=64 style='border-left:none;width:48pt'>center</td>
+  <td class=xl1061608 width=64 style='border-left:none;width:48pt'>scroll left</td>
+  <td class=xl1061608 width=64 style='border-left:none;width:48pt'>scroll right</td>
+  <td class=xl1061608 width=64 style='border-left:none;width:48pt'>up</td>
+  <td class=xl1061608 width=64 style='border-left:none;width:48pt'>down</td>
+  <td class=xl1061608 width=64 style='border-left:none;width:48pt'>left</td>
+  <td class=xl1061608 width=64 style='border-left:none;width:48pt'>right</td>
+  <td class=xl1061608 width=64 style='border-left:none;width:48pt'>top/home</td>
+  <td class=xl1061608 width=64 style='border-left:none;width:48pt'>bottom/end</td>
+  <td class=xl1061608 width=64 style='border-left:none;width:48pt'>zoom out</td>
+  <td class=xl1071608 width=64 style='border-left:none;width:48pt'>zoom in</td>
+  <td class=xl631608 width=64 style='width:48pt'>fill</td>
+ </tr>
+ <tr height=35 style='height:26.25pt'>
+  <td height=35 class=xl641608 width=64 style='height:26.25pt;width:48pt'>Command</td>
+  <td class=xl651608 width=64 style='border-left:none;width:48pt'>( )</td>
+  <td class=xl661608 width=64 style='border-left:none;width:48pt'>scroll up</td>
+  <td class=xl661608 width=64 style='border-left:none;width:48pt'>scroll down</td>
+  <td class=xl661608 width=64 style='border-left:none;width:48pt'>center</td>
+  <td class=xl671608 width=64 style='border-left:none;width:48pt'>scroll left</td>
+  <td class=xl671608 width=64 style='border-left:none;width:48pt'>scroll right</td>
+  <td class=xl661608 width=64 style='border-left:none;width:48pt'>up</td>
+  <td class=xl661608 width=64 style='border-left:none;width:48pt'>down</td>
+  <td class=xl661608 width=64 style='border-left:none;width:48pt'>left</td>
+  <td class=xl661608 width=64 style='border-left:none;width:48pt'>right</td>
+  <td class=xl661608 width=64 style='border-left:none;width:48pt'>home</td>
+  <td class=xl661608 width=64 style='border-left:none;width:48pt'>end</td>
+  <td class=xl661608 width=64 style='border-left:none;width:48pt'>out</td>
+  <td class=xl681608 width=64 style='border-left:none;width:48pt'>in</td>
+  <td class=xl691608 width=64 style='width:48pt'>fill</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl1081608 width=91 style='height:27.0pt;width:68pt'>Actionslider
+  (CallSlider)</td>
+  <td class=xl701608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>3</td>
+  <td class=xl721608 width=64 style='border-left:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl741608 width=64 style='width:48pt'>moves center</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl761608 width=64 style='width:48pt'>moves left</td>
+  <td class=xl761608 width=64 style='width:48pt'>moves right</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1091608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1081608 width=91 style='height:16.5pt;width:68pt'>Background</td>
+  <td class=xl771608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>None</td>
+  <td class=xl781608 width=64 style='border-left:none;width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1091608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1101608 width=91 style='height:16.5pt;width:68pt'>Bubble</td>
+  <td class=xl771608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl791608 width=64 style='width:48pt'>click</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1091608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1081608 width=91 style='height:16.5pt;width:68pt'>Button</td>
+  <td class=xl771608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl801608 width=64 style='width:48pt'>click</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1091608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl1111608 width=91 style='height:27.0pt;width:68pt'>Calender</td>
+  <td class=xl811608 width=78 style='width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;width:48pt'>5</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl821608 width=64 style='border-top:none;width:48pt'>previous month</td>
+  <td class=xl741608 width=64 style='border-top:none;width:48pt'>next month</td>
+  <td class=xl741608 width=64 style='border-top:none;width:48pt'>move up</td>
+  <td class=xl741608 width=64 style='border-top:none;width:48pt'>moves down</td>
+  <td class=xl741608 width=64 style='border-top:none;width:48pt'>move left</td>
+  <td class=xl741608 width=64 style='border-top:none;width:48pt'>move right</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl1121608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1131608 width=91 style='height:16.5pt;width:68pt'>Checkbox</td>
+  <td class=xl811608 width=78 style='width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;width:48pt'>1</td>
+  <td class=xl831608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>click</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1091608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td rowspan=5 height=122 class=xl1111608 width=91 style='border-bottom:2.0pt double black;
+  height:91.5pt;border-top:none;width:68pt'>Clock</td>
+  <td class=xl841608 width=78 style='border-top:none;width:59pt'>edit</td>
+  <td class=xl851608 width=64 style='width:48pt'>1</td>
+  <td class=xl861608 width=64 style='border-left:none;width:48pt'>edit</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl881608 width=78 style='height:15.0pt;border-left:none;
+  width:59pt'>done</td>
+  <td class=xl891608 width=64 style='border-left:none;width:48pt'>1</td>
+  <td class=xl861608 width=64 style='border-left:none;width:48pt'>done</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=40 style='mso-height-source:userset;height:30.0pt'>
+  <td height=40 class=xl881608 width=78 style='height:30.0pt;border-left:none;
+  width:59pt'>hour</td>
+  <td class=xl891608 width=64 style='border-left:none;width:48pt'>2</td>
+  <td class=xl901608 width=64 style='border-left:none;width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl911608 width=64 style='width:48pt'>hour up</td>
+  <td class=xl911608 width=64 style='width:48pt'>hour down</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl881608 width=78 style='height:15.0pt;border-left:none;
+  width:59pt'>minute</td>
+  <td class=xl891608 width=64 style='border-left:none;width:48pt'>2</td>
+  <td class=xl901608 width=64 style='border-left:none;width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl911608 width=64 style='width:48pt'>min up</td>
+  <td class=xl911608 width=64 style='width:48pt'>min down</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl811608 width=78 style='height:15.75pt;width:59pt'>second</td>
+  <td class=xl921608 width=64 style='width:48pt'>2</td>
+  <td class=xl781608 width=64 style='border-left:none;width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl801608 width=64 style='width:48pt'>sec up</td>
+  <td class=xl801608 width=64 style='width:48pt'>sec down</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1091608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=52 style='height:39.0pt'>
+  <td rowspan=3 height=155 class=xl1351608 width=91 style='height:116.25pt;
+  border-top:none;width:68pt'>Colorselector</td>
+  <td class=xl701608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>hue</td>
+  <td class=xl851608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>4</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl911608 width=64 style='width:48pt'>move left <br>
+    5 step</td>
+  <td class=xl911608 width=64 style='width:48pt'>move right <br>
+    5 step</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl911608 width=64 style='width:48pt'>move left</td>
+  <td class=xl911608 width=64 style='width:48pt'>move right</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=51 style='height:38.25pt'>
+  <td height=51 class=xl881608 width=78 style='height:38.25pt;border-left:none;
+  width:59pt'>saturation</td>
+  <td class=xl891608 width=64 style='border-left:none;width:48pt'>4</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl911608 width=64 style='width:48pt'>move left <br>
+    5 step</td>
+  <td class=xl911608 width=64 style='width:48pt'>move right <br>
+    5 step</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl911608 width=64 style='width:48pt'>move left</td>
+  <td class=xl911608 width=64 style='width:48pt'>move right</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=52 style='height:39.0pt'>
+  <td height=52 class=xl811608 width=78 style='height:39.0pt;width:59pt'>lightness</td>
+  <td class=xl921608 width=64 style='width:48pt'>4</td>
+  <td class=xl781608 width=64 style='border-left:none;width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl911608 width=64 style='width:48pt'>move left <br>
+    5 step</td>
+  <td class=xl911608 width=64 style='width:48pt'>move right <br>
+    5 step</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl911608 width=64 style='width:48pt'>move left</td>
+  <td class=xl911608 width=64 style='width:48pt'>move right</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1081608 width=91 style='height:16.5pt;width:68pt'>CtxPopup</td>
+  <td class=xl771608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-left:none;width:48pt'>1</td>
+  <td class=xl801608 width=64 style='width:48pt'>click</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1121608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td rowspan=2 height=56 class=xl1101608 width=91 style='border-bottom:2.0pt double black;
+  height:42.0pt;width:68pt'>Datetime</td>
+  <td class=xl701608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>button name</td>
+  <td class=xl851608 width=64 style='border-left:none;width:48pt'>1</td>
+  <td class=xl931608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>click</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=35 style='height:26.25pt'>
+  <td height=35 class=xl811608 width=78 style='height:26.25pt;width:59pt'>scroll
+  bar</td>
+  <td class=xl921608 width=64 style='width:48pt'>5</td>
+  <td class=xl951608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl791608 width=64 style='width:48pt'>scroll left</td>
+  <td class=xl791608 width=64 style='width:48pt'>scroll right</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl801608 width=64 style='width:48pt'>move left<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl801608 width=64 style='width:48pt'>move right</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1091608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td rowspan=7 height=144 class=xl1111608 width=91 style='border-bottom:2.0pt double black;
+  height:108.0pt;border-top:none;width:68pt'>Dayselector</td>
+  <td class=xl701608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>Monday</td>
+  <td class=xl851608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl861608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl881608 width=78 style='height:15.0pt;border-left:none;
+  width:59pt'>Thueday</td>
+  <td class=xl891608 width=64 style='border-left:none;width:48pt'>1</td>
+  <td class=xl861608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='mso-height-source:userset;height:16.5pt'>
+  <td height=22 class=xl881608 width=78 style='height:16.5pt;border-left:none;
+  width:59pt'>Wednesday</td>
+  <td class=xl891608 width=64 style='border-left:none;width:48pt'>1</td>
+  <td class=xl861608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl881608 width=78 style='height:15.0pt;border-left:none;
+  width:59pt'>Thursday</td>
+  <td class=xl891608 width=64 style='border-left:none;width:48pt'>1</td>
+  <td class=xl861608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl881608 width=78 style='height:15.0pt;border-left:none;
+  width:59pt'>Firday</td>
+  <td class=xl891608 width=64 style='border-left:none;width:48pt'>1</td>
+  <td class=xl861608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl881608 width=78 style='height:15.0pt;border-left:none;
+  width:59pt'>Saturday</td>
+  <td class=xl891608 width=64 style='border-left:none;width:48pt'>1</td>
+  <td class=xl861608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl811608 width=78 style='height:15.75pt;width:59pt'>Sunday</td>
+  <td class=xl921608 width=64 style='width:48pt'>1</td>
+  <td class=xl951608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1091608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl1161608 width=91 style='height:27.0pt;border-top:none;
+  width:68pt'>Diskselector</td>
+  <td class=xl811608 width=78 style='width:59pt'>-</td>
+  <td class=xl711608 width=64 style='width:48pt'>5</td>
+  <td class=xl961608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>click</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl761608 width=64 style='border-top:none;width:48pt'>scroll left</td>
+  <td class=xl761608 width=64 style='border-top:none;width:48pt'>scroll right</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl801608 width=64 style='width:48pt'>moves left</td>
+  <td class=xl801608 width=64 style='width:48pt'><span
+  style='mso-spacerun:yes'> </span>moves right</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1091608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1171608 width=91 style='height:16.5pt;border-top:none;
+  width:68pt'>Entry</td>
+  <td class=xl811608 width=78 style='width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;width:48pt'>1</td>
+  <td class=xl801608 width=64 style='width:48pt'>click</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1091608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl1111608 width=91 style='height:27.0pt;border-top:none;
+  width:68pt'>File Selector Button</td>
+  <td class=xl701608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl971608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl1111608 width=91 style='height:27.0pt;width:68pt'>File
+  Selector Entry</td>
+  <td class=xl771608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>None</td>
+  <td class=xl721608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1121608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td rowspan=2 height=56 class=xl1111608 width=91 style='height:42.0pt;
+  width:68pt'>File Selector</td>
+  <td class=xl701608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>button name</td>
+  <td class=xl851608 width=64 style='border-left:none;width:48pt'>1</td>
+  <td class=xl931608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>click</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=35 style='height:26.25pt'>
+  <td height=35 class=xl811608 width=78 style='height:26.25pt;width:59pt'>list
+  name</td>
+  <td class=xl921608 width=64 style='width:48pt'>7</td>
+  <td class=xl951608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl801608 width=64 style='width:48pt'>scroll up</td>
+  <td class=xl801608 width=64 style='width:48pt'>scroll down</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl801608 width=64 style='width:48pt'>moves up</td>
+  <td class=xl801608 width=64 style='width:48pt'>move down</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl791608 width=64 style='width:48pt'>move top</td>
+  <td class=xl791608 width=64 style='width:48pt'>move bottom</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1091608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl1111608 width=91 style='height:27.0pt;width:68pt'>Flip</td>
+  <td class=xl701608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-left:none;width:48pt'>&nbsp;</td>
+  <td class=xl951608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl801608 width=64 style='width:48pt'>moves up</td>
+  <td class=xl801608 width=64 style='width:48pt'>move down</td>
+  <td class=xl801608 width=64 style='width:48pt'>moves left</td>
+  <td class=xl801608 width=64 style='width:48pt'><span
+  style='mso-spacerun:yes'> </span>moves right</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl1161608 width=91 style='height:27.0pt;width:68pt'>Flip
+  selector</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>2</td>
+  <td class=xl721608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>&nbsp;</td>
+  <td class=xl981608 width=64 style='border-top:none;width:48pt'><s
+  style='visibility:hidden;mso-ignore:visibility'>&nbsp;</s></td>
+  <td class=xl981608 width=64 style='border-top:none;width:48pt'><s
+  style='visibility:hidden;mso-ignore:visibility'>&nbsp;</s></td>
+  <td class=xl981608 width=64 style='border-top:none;width:48pt'><s
+  style='visibility:hidden;mso-ignore:visibility'>&nbsp;</s></td>
+  <td class=xl981608 width=64 style='border-top:none;width:48pt'><s
+  style='visibility:hidden;mso-ignore:visibility'>&nbsp;</s></td>
+  <td class=xl981608 width=64 style='border-top:none;width:48pt'><s
+  style='visibility:hidden;mso-ignore:visibility'>&nbsp;</s></td>
+  <td class=xl801608 width=64 style='width:48pt'>moves up</td>
+  <td class=xl801608 width=64 style='width:48pt'>moves down</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1181608 width=91 style='height:16.5pt;width:68pt'>Frame</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl961608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>click</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1121608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl1081608 width=91 style='height:27.0pt;border-top:none;
+  width:68pt'>Genlist</td>
+  <td class=xl771608 width=78 style='border-left:none;width:59pt'>button name</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>7</td>
+  <td class=xl951608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl801608 width=64 style='width:48pt'>scroll up</td>
+  <td class=xl801608 width=64 style='width:48pt'>scroll down</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl801608 width=64 style='width:48pt'>moves up</td>
+  <td class=xl801608 width=64 style='width:48pt'>move down</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl801608 width=64 style='width:48pt'>move top</td>
+  <td class=xl801608 width=64 style='width:48pt'>move bottom</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1111608 width=91 style='height:16.5pt;width:68pt'>GL
+  View</td>
+  <td class=xl701608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>None</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1161608 width=91 style='height:16.5pt;width:68pt'>Hover</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>None</td>
+  <td class=xl721608 width=64 style='border-left:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1161608 width=91 style='height:16.5pt;border-top:none;
+  width:68pt'>Hoversel</td>
+  <td class=xl771608 width=78 style='border-left:none;width:59pt'>button name</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl801608 width=64 style='width:48pt'>click</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1111608 width=91 style='height:16.5pt;border-top:none;
+  width:68pt'>Icon</td>
+  <td class=xl701608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl971608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1121608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1111608 width=91 style='height:16.5pt;width:68pt'>Image</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl831608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>click</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl1121608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl1081608 width=91 style='height:27.0pt;width:68pt'>index
+  (Fast Scroll)</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>sub (A~Z)</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl971608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl991608 width=64 style='width:48pt'><s style='visibility:hidden;
+  mso-ignore:visibility'>&nbsp;</s></td>
+  <td class=xl991608 width=64 style='width:48pt'><s style='visibility:hidden;
+  mso-ignore:visibility'>&nbsp;</s></td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl991608 width=64 style='width:48pt'><s style='visibility:hidden;
+  mso-ignore:visibility'>&nbsp;</s></td>
+  <td class=xl991608 width=64 style='width:48pt'><s style='visibility:hidden;
+  mso-ignore:visibility'>&nbsp;</s></td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl991608 width=64 style='width:48pt'><s style='visibility:hidden;
+  mso-ignore:visibility'>&nbsp;</s></td>
+  <td class=xl991608 width=64 style='width:48pt'><s style='visibility:hidden;
+  mso-ignore:visibility'>&nbsp;</s></td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1141608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1111608 width=91 style='height:16.5pt;width:68pt'>Inwin</td>
+  <td class=xl771608 width=78 style='border-left:none;width:59pt'>button name</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl971608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1121608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl1111608 width=91 style='height:27.0pt;width:68pt'>List</td>
+  <td class=xl771608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>button name</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>7</td>
+  <td class=xl971608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl801608 width=64 style='width:48pt'>scroll up</td>
+  <td class=xl801608 width=64 style='width:48pt'>scroll down</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl801608 width=64 style='width:48pt'>moves up</td>
+  <td class=xl801608 width=64 style='width:48pt'>move down</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl801608 width=64 style='width:48pt'>move top</td>
+  <td class=xl801608 width=64 style='width:48pt'>move bottom</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1091608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1081608 width=91 style='height:16.5pt;width:68pt'>Label</td>
+  <td class=xl701608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>None</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl1121608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl1191608 width=91 style='height:27.0pt;width:68pt'>Map</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>10</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl801608 width=64 style='width:48pt'>scroll up</td>
+  <td class=xl801608 width=64 style='width:48pt'>scroll down</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl801608 width=64 style='width:48pt'>scroll left</td>
+  <td class=xl801608 width=64 style='width:48pt'>scroll right</td>
+  <td class=xl801608 width=64 style='width:48pt'>moves up</td>
+  <td class=xl801608 width=64 style='width:48pt'>move down</td>
+  <td class=xl801608 width=64 style='width:48pt'>move left</td>
+  <td class=xl801608 width=64 style='width:48pt'>move right</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl801608 width=64 style='width:48pt'>zoom out</td>
+  <td class=xl801608 width=64 style='width:48pt'>zoom in</td>
+  <td class=xl1121608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1111608 width=91 style='height:16.5pt;width:68pt'>Mapbuf</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>None</td>
+  <td class=xl721608 width=64 style='border-left:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1111608 width=91 style='height:16.5pt;width:68pt'>Menu</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>None</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1161608 width=91 style='height:16.5pt;width:68pt'>Notify</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>None</td>
+  <td class=xl721608 width=64 style='border-left:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl1181608 width=91 style='height:27.0pt;width:68pt'>Panel</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>5</td>
+  <td class=xl1001608 width=64 style='width:48pt'>click</td>
+  <td class=xl791608 width=64 style='width:48pt'>show / hide</td>
+  <td class=xl791608 width=64 style='width:48pt'>show / hide</td>
+  <td class=xl751608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl791608 width=64 style='width:48pt'>show / hide</td>
+  <td class=xl791608 width=64 style='width:48pt'>show / hide</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1121608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1181608 width=91 style='height:16.5pt;width:68pt'>Photo</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl1011608 width=64 style='width:48pt'>click</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl1121608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='mso-height-source:userset;height:27.0pt'>
+  <td height=36 class=xl1181608 width=91 style='height:27.0pt;width:68pt'>Photocam</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>14</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl801608 width=64 style='width:48pt'>scroll up</td>
+  <td class=xl801608 width=64 style='width:48pt'>scroll down</td>
+  <td class=xl801608 width=64 style='width:48pt'>move center</td>
+  <td class=xl801608 width=64 style='width:48pt'>scroll left</td>
+  <td class=xl801608 width=64 style='width:48pt'>scroll right</td>
+  <td class=xl801608 width=64 style='width:48pt'>move up small</td>
+  <td class=xl801608 width=64 style='width:48pt'>move down small</td>
+  <td class=xl801608 width=64 style='width:48pt'>move left small</td>
+  <td class=xl801608 width=64 style='width:48pt'>move right small</td>
+  <td class=xl801608 width=64 style='width:48pt'>move to top</td>
+  <td class=xl801608 width=64 style='width:48pt'>move to botton</td>
+  <td class=xl801608 width=64 style='width:48pt'>zoom out</td>
+  <td class=xl801608 width=64 style='width:48pt'>zoom in</td>
+  <td class=xl1201608 width=64 style='width:48pt'>fill window</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1211608 width=91 style='height:16.5pt;width:68pt'>Popup</td>
+  <td class=xl771608 width=78 style='border-left:none;width:59pt'>button name</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl1011608 width=64 style='width:48pt'>click</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1171608 width=91 style='height:16.5pt;border-top:none;
+  width:68pt'>Progress bar</td>
+  <td class=xl701608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>None</td>
+  <td class=xl721608 width=64 style='border-left:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1211608 width=91 style='height:16.5pt;width:68pt'>Radio</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl1021608 width=64 style='width:48pt'>click</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1161608 width=91 style='height:16.5pt;border-top:none;
+  width:68pt'>Route</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>None</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl1221608 width=91 style='height:27.0pt;width:68pt'>SegmentControl</td>
+  <td class=xl771608 width=78 style='border-left:none;width:59pt'>button name</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl1021608 width=64 style='width:48pt'>click</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1181608 width=91 style='height:16.5pt;width:68pt'>Separator</td>
+  <td class=xl701608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>None</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=53 style='height:39.75pt'>
+  <td height=53 class=xl1221608 width=91 style='height:39.75pt;width:68pt'>Slider</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>11</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl801608 width=64 style='width:48pt'>move up more</td>
+  <td class=xl801608 width=64 style='width:48pt'>move down <br>
+    more</td>
+  <td class=xl801608 width=64 style='width:48pt'>move center</td>
+  <td class=xl801608 width=64 style='width:48pt'>move left more</td>
+  <td class=xl801608 width=64 style='width:48pt'>move right more</td>
+  <td class=xl801608 width=64 style='width:48pt'>move up</td>
+  <td class=xl801608 width=64 style='width:48pt'>move down</td>
+  <td class=xl801608 width=64 style='width:48pt'>move left</td>
+  <td class=xl801608 width=64 style='width:48pt'>move right</td>
+  <td class=xl801608 width=64 style='width:48pt'>move home</td>
+  <td class=xl801608 width=64 style='width:48pt'>move end</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1171608 width=91 style='height:16.5pt;border-top:none;
+  width:68pt'>Slideshow</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>None</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl1181608 width=91 style='height:27.0pt;width:68pt'>Spinner</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>6</td>
+  <td class=xl721608 width=64 style='border-left:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl791608 width=64 style='width:48pt'>click left</td>
+  <td class=xl791608 width=64 style='width:48pt'>click right</td>
+  <td class=xl791608 width=64 style='width:48pt'>click left</td>
+  <td class=xl791608 width=64 style='width:48pt'>click right</td>
+  <td class=xl791608 width=64 style='width:48pt'>move start</td>
+  <td class=xl791608 width=64 style='width:48pt'>move end</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1231608 width=91 style='height:16.5pt;width:68pt'>Thumbnail</td>
+  <td class=xl701608 width=78 style='border-left:none;width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl1021608 width=64 style='width:48pt'>click</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl731608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='mso-height-source:userset;height:27.0pt'>
+  <td height=36 class=xl1171608 width=91 style='height:27.0pt;width:68pt'>Toolbar</td>
+  <td class=xl771608 width=78 style='border-left:none;width:59pt'>button name</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>10</td>
+  <td class=xl931608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl1031608 width=64 style='width:48pt'>move up more</td>
+  <td class=xl1031608 width=64 style='width:48pt'>move down <br>
+    more</td>
+  <td class=xl871608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1031608 width=64 style='width:48pt'>move left more</td>
+  <td class=xl1031608 width=64 style='width:48pt'>move right more</td>
+  <td class=xl1011608 width=64 style='border-top:none;width:48pt'>moves up</td>
+  <td class=xl1011608 width=64 style='border-top:none;width:48pt'>move down</td>
+  <td class=xl1011608 width=64 style='border-top:none;width:48pt'>move left</td>
+  <td class=xl1011608 width=64 style='border-top:none;width:48pt'>move right</td>
+  <td class=xl1011608 width=64 style='border-top:none;width:48pt'>move top</td>
+  <td class=xl1011608 width=64 style='border-top:none;width:48pt'>move bottom</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1161608 width=91 style='height:16.5pt;border-top:none;
+  width:68pt'>Tooltips</td>
+  <td class=xl701608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>-</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>None</td>
+  <td class=xl721608 width=64 style='border-left:none;width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1241608 width=91 style='height:16.5pt;width:68pt'>video</td>
+  <td class=xl771608 width=78 style='border-left:none;width:59pt'>button name</td>
+  <td class=xl711608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>1</td>
+  <td class=xl971608 width=64 style='border-left:none;width:48pt'>click</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl941608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1151608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=22 style='height:16.5pt'>
+  <td height=22 class=xl1251608 width=91 style='height:16.5pt;border-top:none;
+  width:68pt'>Web</td>
+  <td class=xl1261608 width=78 style='border-top:none;border-left:none;
+  width:59pt'>-</td>
+  <td class=xl1271608 width=64 style='border-top:none;border-left:none;
+  width:48pt'>None</td>
+  <td class=xl1281608 width=64 style='border-top:none;width:48pt'>&nbsp;</td>
+  <td class=xl1281608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1281608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1281608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1281608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1281608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1281608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1281608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1281608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1281608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1281608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1281608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1281608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1281608 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1291608 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=91 style='width:68pt'></td>
+  <td width=78 style='width:59pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD-->
+<!----------------------------->
+</body>
+
+</html>
+
+* 
+* @endhtmlonly
+* @}
+*/
