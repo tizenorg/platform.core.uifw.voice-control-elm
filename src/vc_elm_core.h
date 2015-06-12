@@ -156,7 +156,9 @@ void _vc_elm_core_init();
  */
 void _vc_elm_core_fini();
 void _vc_elm_core_load();
+#if 0
 unsigned int _vc_elm_core_get_window();
+#endif
 Evas_Object *_vc_elm_core_get_evas_object(Elm_Object_Item *item);
 
 #ifdef SRPOL_DEBUG

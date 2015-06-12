@@ -98,8 +98,10 @@ int vc_elm_initialize()
 	_vc_elm_core_enable_name_autogen(EINA_FALSE);
 	_vc_elm_core_init();
 
+#if 0
 	ecore_event_handler_add(ECORE_X_EVENT_WINDOW_FOCUS_IN, __vc_elm_x_event_window_focus_in, NULL);
 	ecore_event_handler_add(ECORE_X_EVENT_WINDOW_FOCUS_OUT, __vc_elm_x_event_window_focus_out, NULL);
+#endif
 
 	g_handlers_list = NULL;
 	_vc_elm_core_load();

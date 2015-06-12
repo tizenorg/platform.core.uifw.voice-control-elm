@@ -29,7 +29,6 @@ extern "C" {
 #include <Eina.h>
 #include <Evas.h>
 #include <Ecore.h>
-#include <Ecore_X.h>
 #include <Elementary.h>
 #include <dlog.h>
 

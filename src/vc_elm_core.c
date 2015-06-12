@@ -330,10 +330,12 @@ void _vc_elm_core_load()
 #endif
 }
 
+#if 0
 unsigned int _vc_elm_core_get_window()
 {
 	return (unsigned int)elm_win_xwindow_get(g_default_window);
 }
+#endif
 
 Evas_Object *_vc_elm_core_get_evas_object(Elm_Object_Item *item)
 {
@@ -1437,12 +1439,18 @@ static Eina_Bool __idle_enter(void *data)
 	Eina_List *l;
 	Evas_Object *obj;
 	Eina_Bool is_focused = elm_win_focus_get(g_default_window);
+#if 0
 	Ecore_X_Window focused = ecore_x_window_focus_get();
+#endif
 	(void)data;
 
+#if 0
 	VC_ELM_LOG_DBG("Focused %ud", focused);
 	VC_ELM_LOG_DBG("Focused g_default %ud", elm_win_xwindow_get(g_default_window));
 	if (!is_focused || focused != elm_win_xwindow_get(g_default_window)) {
+#else
+	if (!is_focused) {
+#endif
 		/* window changed, we need to get new one */
 		VC_ELM_LOG_DBG("list count %d", eina_list_count(ui_objects_list));
 		EINA_LIST_FOREACH(ui_objects_list, l, obj) {
@@ -1451,7 +1459,9 @@ static Eina_Bool __idle_enter(void *data)
 			window = elm_object_top_widget_get(obj);
 			if (window && elm_win_focus_get(window) == EINA_TRUE) {
 				/*Ecore_Evas *ecevas = NULL;*/
+#if 0
 				VC_ELM_LOG_DBG("NEW Focused g_default %ud", elm_win_xwindow_get(window));
+#endif
 				g_default_window = window;
 				/*ecevas = ecore_evas_ecore_evas_get(evas_object_evas_get(g_default_window));
 				ecore_evas_callback_post_render_set(ecevas, __idle_changed);*/
@@ -1463,7 +1473,9 @@ static Eina_Bool __idle_enter(void *data)
 	/* OK, window set properly now */
 
 	_vc_elm_set_tooltips_window(g_default_window);
+#if 0
 	VC_ELM_LOG_DBG("elm_win_xwindow_get = %p", (void*)elm_win_xwindow_get(g_default_window));
+#endif
 
 	if (elm_win_wm_rotation_supported_get(g_default_window)) {
 		int rots[4] = {0, 90, 180, 270};
