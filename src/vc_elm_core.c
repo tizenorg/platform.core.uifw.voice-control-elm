@@ -22,6 +22,7 @@
 #include <stdlib.h>
 #include <Ecore_Evas.h>
 #include <libxml/parser.h>
+#include <voice_control_widget.h>
 
 #include "vc_elm.h"
 #include "vc_elm_core.h"
@@ -329,13 +330,6 @@ void _vc_elm_core_load()
 	_vc_elm_widget_wrapper_initialize();
 #endif
 }
-
-#if 0
-unsigned int _vc_elm_core_get_window()
-{
-	return (unsigned int)elm_win_xwindow_get(g_default_window);
-}
-#endif
 
 Evas_Object *_vc_elm_core_get_evas_object(Elm_Object_Item *item)
 {
@@ -1434,15 +1428,47 @@ static void __show_or_hide_tooltips_callback(bool show_or_hide)
 	VC_ELM_LOG_DBG("Evas has changed");
 }*/
 
+/**
+ * @brief Internal callback that sets the vc_widget's foreground option to true.
+ */
+static void __vc_elm_event_window_focus_in(void *data, Evas_Object *obj, void *event_info)
+{
+	(void)data;
+	(void)obj;
+	(void)event_info;
+
+	vc_widget_set_foreground(EINA_TRUE);
+
+	VC_ELM_LOG_DBG("Focus in");
+}
+
+/**
+ * @brief Internal callback that sets the vc_widget's foreground option to false
+ */
+static void __vc_elm_event_window_focus_out(void *data, Evas_Object *obj, void *event_info)
+{
+	(void)data;
+	(void)obj;
+	(void)event_info;
+
+	vc_widget_set_foreground(EINA_FALSE);
+
+	_vc_elm_turn_off_tooltips();
+
+	VC_ELM_LOG_DBG("Focus out");
+}
+
 static Eina_Bool __idle_enter(void *data)
 {
 	Eina_List *l;
 	Evas_Object *obj;
 	Eina_Bool is_focused = elm_win_focus_get(g_default_window);
-#if 0
-	Ecore_X_Window focused = ecore_x_window_focus_get();
-#endif
 	(void)data;
+
+	if (NULL != g_default_window) {
+		evas_object_smart_callback_del(g_default_window, "focused", __vc_elm_event_window_focus_in);
+		evas_object_smart_callback_del(g_default_window, "unfocused", __vc_elm_event_window_focus_out);
+	}
 
 #if 0
 	VC_ELM_LOG_DBG("Focused %ud", focused);
@@ -1470,6 +1496,8 @@ static Eina_Bool __idle_enter(void *data)
 		}
 	}
 
+	evas_object_smart_callback_add(g_default_window, "focused", __vc_elm_event_window_focus_in, NULL);
+	evas_object_smart_callback_add(g_default_window, "unfocused", __vc_elm_event_window_focus_out, NULL);
 	/* OK, window set properly now */
 
 	_vc_elm_set_tooltips_window(g_default_window);

@@ -54,38 +54,6 @@ struct __vc_elm_widget_cb_data_s{
 
 typedef struct __vc_elm_widget_cb_data_s vc_elm_widget_cb_data_s;
 
-/**
- * @brief Internal callback that sets the vc_widget's foreground option to true.
- */
-static Eina_Bool __vc_elm_x_event_window_focus_in(void *data, int type, void *event)
-{
-	(void)data;
-	(void)type;
-	(void)event;
-
-	vc_widget_set_foreground(EINA_TRUE);
-
-	VC_ELM_LOG_DBG("Focus in");
-	return ECORE_CALLBACK_PASS_ON;
-}
-
-/**
- * @brief Internal callback that sets the vc_widget's foreground option to false
- */
-static Eina_Bool __vc_elm_x_event_window_focus_out(void *data, int type, void *event)
-{
-	(void)data;
-	(void)type;
-	(void)event;
-
-	vc_widget_set_foreground(EINA_FALSE);
-
-	_vc_elm_turn_off_tooltips();
-
-	VC_ELM_LOG_DBG("Focus out");
-	return ECORE_CALLBACK_PASS_ON;
-}
-
 int vc_elm_initialize()
 {
 	if (true == is_vc_elm_initialized) {
@@ -97,11 +65,6 @@ int vc_elm_initialize()
 
 	_vc_elm_core_enable_name_autogen(EINA_FALSE);
 	_vc_elm_core_init();
-
-#if 0
-	ecore_event_handler_add(ECORE_X_EVENT_WINDOW_FOCUS_IN, __vc_elm_x_event_window_focus_in, NULL);
-	ecore_event_handler_add(ECORE_X_EVENT_WINDOW_FOCUS_OUT, __vc_elm_x_event_window_focus_out, NULL);
-#endif
 
 	g_handlers_list = NULL;
 	_vc_elm_core_load();
