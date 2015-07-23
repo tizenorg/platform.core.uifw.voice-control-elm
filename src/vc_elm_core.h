@@ -29,7 +29,11 @@ extern "C" {
  * @brief This file contains core functions, that define the behaviour of library
  */
 
+#ifdef LIB64
+#define VC_ELM_CONFIG_XML 		"/usr/lib64/voice/vc-elm/1.0/voice-control-elm-config.xml"
+#else
 #define VC_ELM_CONFIG_XML 		"/usr/lib/voice/vc-elm/1.0/voice-control-elm-config.xml"
+#endif
 #define VC_ELM_TAG_BASE_NAME		"voice-control-elm-config"
 
 #define VC_ELM_TAG_ACTION_LIST		"action-list"
