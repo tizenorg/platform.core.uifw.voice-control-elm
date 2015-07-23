@@ -23,6 +23,10 @@ INCLUDE(FindPkgConfig)
 SET(CMAKE_BUILD_TYPE "Release")
 SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -g -fprofile-arcs -ftest-coverage -D_GNU_SOURCE")
 
+IF (LIBDIR MATCHES "/usr/lib64")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DLIB64")
+ENDIF (LIBDIR)
+
 # CMake settings
 MESSAGE(STATUS "========================================")
 MESSAGE(STATUS "CMAKE_BINARY_DIR: " ${CMAKE_BINARY_DIR})
