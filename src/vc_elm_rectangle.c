@@ -55,7 +55,7 @@ void _R_set_from_efl(R *p, Evas_Object *obj)
 #define max(a, b) (a > b ? a : b)
 #endif
 
-#if!defined min
+#if !defined min
 #define min(a, b) (a < b ? a : b)
 #endif
 

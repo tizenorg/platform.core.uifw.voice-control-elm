@@ -47,7 +47,7 @@ struct __vc_elm_s {
 
 typedef struct __vc_elm_s vc_elm_s;
 
-struct __vc_elm_widget_cb_data_s{
+struct __vc_elm_widget_cb_data_s {
 	vc_elm_widget_cb callback;
 	void *data;
 };

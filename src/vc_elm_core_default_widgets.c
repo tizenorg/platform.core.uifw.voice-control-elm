@@ -343,8 +343,7 @@ static Eina_Bool __gengrid_filter_func(Evas_Object *obj, const char *action, voi
 	int horizontal = elm_gengrid_horizontal_get(obj);
 	(void)user_data;
 	VC_ELM_LOG_DBG("filtering gengrid");
-	if (NULL == action) /* NULL means whole object */
-	{
+	if (NULL == action) { /* NULL means whole object */
 		Elm_Object_Item *first = __gengrid_filter_first_item_get(obj, NULL);
 		Elm_Object_Item *last = __gengrid_filter_last_item_get(obj, NULL);
 		Elm_Object_Item *first_visible = _vc_elm_core_get_visible_item(obj, __gengrid_filter_first_item_get, __gengrid_filter_item_next_get, NULL);
@@ -471,8 +470,7 @@ static Eina_Bool __genlist_filter_func(Evas_Object *obj, const char *action, voi
 		int y;								\
 		int w;								\
 		int h;								\
-		if (name)							\
-		{								\
+		if (name) {							\
 			evas_object_geometry_get(_vc_elm_core_get_evas_object(name), &x, &y, &w, &h);	\
 			VC_ELM_LOG_WARN("%s -> %d %d / %d %d", #name, x, y, w, h);	\
 		}								\
@@ -956,8 +954,7 @@ static void __colorselector_value_activator_func(Evas_Object *obj, void *data, c
 static void __sub_layout_inspect(Eina_List *ret, Evas_Object *widget)
 {
 	/*Temporary fix for pallete without tooltips*/
-	const char *colors[] =
-		{"pink", "violet", "purple", "navy", "blue", "cyan", "green", "lime", "yellow", "red"};
+	const char *colors[] = {"pink", "violet", "purple", "navy", "blue", "cyan", "green", "lime", "yellow", "red"};
 	const Eina_List *l = NULL;
 	Evas_Object *obj = NULL;
 	const Eina_List *list = elm_widget_can_focus_child_list_get(widget);

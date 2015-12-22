@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
- 
+
+
 #include "vc_elm_main.h"
 #include "vc_elm_widget_wrapper.h"
 #include "vc_elm_tools.h"
@@ -71,7 +71,7 @@ static void __vc_language_changed_cb(const char *previous, const char *current, 
 				default:						\
 					VC_ELM_LOG_ERR("Unkown error in (%s)", msg);	\
 			}								\
-	} while(0)
+	} while (0)
 
 static void __vc_widget_send_current_command_group_cb(vc_cmd_list_h *vc_group, void *user_data)
 {

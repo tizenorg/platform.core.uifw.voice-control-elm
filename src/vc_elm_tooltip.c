@@ -53,7 +53,8 @@ static int win_heigh = -1;
 
 static Eina_List *obj_list = NULL;
 
-const char *_vc_elm_get_data_key(vc_elm_data_key key) {
+const char *_vc_elm_get_data_key(vc_elm_data_key key)
+{
 	if (key < sizeof(__key_table)/sizeof(__key_table[0])) {
 		return __key_table[key];
 	}

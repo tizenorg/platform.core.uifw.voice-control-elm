@@ -65,11 +65,13 @@ static char *g_tooltips_show = NULL;
 #define X_VISIBILITY_TOLERANCE 32.0
 #define Y_VISIBILITY_TOLERANCE 54.0
 
-const Eina_Hash *_vc_elm_core_get_config_action_map() {
+const Eina_Hash *_vc_elm_core_get_config_action_map()
+{
 	return g_config_action_map;
 }
 
-const Eina_Hash *_vc_elm_core_get_config_widget_map() {
+const Eina_Hash *_vc_elm_core_get_config_widget_map()
+{
 	return g_config_widget_map;
 }
 
@@ -129,7 +131,7 @@ static void __hash_entry_free_cb(void *entry);
  * @param[in] callback to handle traversing the current widget
  * @param[in] current list of found widgets
  */
-static void __elm_widget_foreach_in_tree(Evas_Object *widget, Eina_Bool (*cb)(Evas_Object *widget, Eina_List **data), Eina_List **data);
+static void __elm_widget_foreach_in_tree(Evas_Object *widget, Eina_Bool(*cb)(Evas_Object *widget, Eina_List **data), Eina_List **data);
 
 /**
  * @brief Function that recursively traverses the widget tree and finds visible
@@ -444,7 +446,8 @@ static Eina_Bool __item_item_map_foreach(const Eina_Hash *hash, const void *key,
 	return EINA_TRUE;
 }
 
-static void __remove_ctxpopup(void *data, Evas *e, Evas_Object *obj, void *event_info) {
+static void __remove_ctxpopup(void *data, Evas *e, Evas_Object *obj, void *event_info)
+{
 	Eina_List *constant_list = NULL;
 	const Eina_List *tmp_list = NULL;
 
@@ -516,7 +519,7 @@ Elm_Object_Item *_vc_elm_core_get_visible_item(Evas_Object *parent, Elm_Object_I
 	return ret;
 }
 
-static void __elm_widget_foreach_in_tree(Evas_Object *widget, Eina_Bool (*cb)(Evas_Object *widget, Eina_List **data), Eina_List **data)
+static void __elm_widget_foreach_in_tree(Evas_Object *widget, Eina_Bool(*cb)(Evas_Object *widget, Eina_List **data), Eina_List **data)
 {
 	Eina_Bool visible = evas_object_visible_get(widget);
 
@@ -571,7 +574,7 @@ static void __elm_widget_foreach_in_tree(Evas_Object *widget, Eina_Bool (*cb)(Ev
 			}
 			list = __get_objects_of_visible_items(widget, &elm_genlist_first_item_get, &elm_genlist_item_next_get);
 			constant_list = elm_widget_can_focus_child_list_get(widget);
-			EINA_LIST_FOREACH (constant_list, l, obj) {
+			EINA_LIST_FOREACH(constant_list, l, obj) {
 				if (NULL == eina_list_data_find(list, obj))
 					list = eina_list_append(list, obj);
 			}
@@ -583,7 +586,7 @@ static void __elm_widget_foreach_in_tree(Evas_Object *widget, Eina_Bool (*cb)(Ev
 			}
 			list = __get_objects_of_visible_items(widget, &elm_gengrid_first_item_get, &elm_gengrid_item_next_get);
 			constant_list = elm_widget_can_focus_child_list_get(widget);
-			EINA_LIST_FOREACH (constant_list, l, obj) {
+			EINA_LIST_FOREACH(constant_list, l, obj) {
 				if (NULL == eina_list_data_find(list, obj))
 					list = eina_list_append(list, obj);
 			}
@@ -746,7 +749,7 @@ void _show_tooltips()
 	__idle_enter(NULL);
 
 	VC_ELM_LOG_DBG("show_tooltips");
-	EINA_LIST_FOREACH (g_current_ui_objects, _l, obj) {
+	EINA_LIST_FOREACH(g_current_ui_objects, _l, obj) {
 		parent = elm_object_parent_widget_get(obj);
 		info = NULL;
 		obj_name = _get_ui_object_name(obj);
@@ -892,7 +895,7 @@ static void __vc_add_commands()
 		g_wrapped_commands = NULL;
 	}
 
-	EINA_LIST_FOREACH (g_current_ui_objects, _l, obj) {
+	EINA_LIST_FOREACH(g_current_ui_objects, _l, obj) {
 		struct vc_elm_core_widget_info *info = NULL;
 		const char *obj_name = _get_ui_object_name(obj);
 		char *command = NULL;
