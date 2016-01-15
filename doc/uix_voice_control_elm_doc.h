@@ -32,15 +32,15 @@
  * - User speaks the hint name of the widget he/she wants to trigger and the action he/she wants to perform on that widget.<br>
  * - The voice command is interpreted and the requested action on the widget is performed.<br>
  *
- * To use of voice control elementary, use the following steps:
- * 1. Initialize voice control elementary
- * 2. Register callback functions for notifications
- * 3. Create a handle after creating an evas object or elementary object item
- * 4. Set command and hint
- * 5. Set hint direction if you want to change hint position
- * 6. Run action mapped widget which is spoken by user
- * 7. Destroy handle
- * 8. Uninitialize voice control elementary
+ * To use of voice control elementary, use the following steps: <br>
+ * 1. Initialize voice control elementary <br>
+ * 2. Register callback functions for notifications <br>
+ * 3. Create a handle after creating an evas object or elementary object item <br>
+ * 4. Set command and hint <br>
+ * 5. Set hint direction if you want to change hint position <br>
+ * 6. Run action mapped widget which is spoken by user <br>
+ * 7. Destroy handle <br>
+ * 8. Uninitialize voice control elementary <br>
  *
  * When window is updated by user's operation with touch, key or etc, it is needed to set command and hint creating evas object or elementary object item.<br>
  * And the callback function of action related to widget is called internally, when user speaks a particular widget's hint.
@@ -49,32 +49,35 @@
  * 
  * Here is an example code for supporting voice control elm module :
  * @code
- * #include <appcore-efl.h>
+ * #include <app.h>
  * #include <voice_control_elm.h>
  *
- * static int _create_app(void *data)
+ * void app_control(app_control_h app_control, void *user_data)
  * {
  *		vc_elm_initialize();
  *		vc_elm_set_current_language_changed_cb(_vc_elm_language_changed_cb, NULL); 
  *		elm_main(0, (char **)NULL);
- *		return 0;
  * }
  * 
- * static int _terminate_app(void *data)
+ * void app_terminate(void *user_data)
  * {
  *		vc_elm_deinitialize();
- *		return 0;
  * }
  * 
- * int main(int argc, char **argv)
+ * int main(int argc, char *argv[])
  * {
- *		struct appcore_ops ops;
- *		ops.create = _create_app;
- *		ops.terminate = _terminate_app;
- *		ops.pause = NULL;
- *		ops.resume = NULL;
- *		ops.reset = NULL;
- *		return appcore_efl_main("vc-elm-test", &argc, &argv, &ops);
+ *		struct appdata ad;
+ *		ui_app_lifecycle_callback_s event_callback = {0,};
+ *
+ *		event_callback.create = app_create;
+ *		event_callback.terminate = app_terminate;
+ *		event_callback.pause = NULL;
+ *		event_callback.resume = NULL;
+ *		event_callback.app_control = NULL;
+ *
+ *		memset(&ad, 0x0, sizeof(struct appdata));
+ *
+ *		return ui_app_main(argc, argv, &event_callback, &ad);
  * }
  * @endcode
  * 
@@ -100,7 +103,7 @@
  *
  *		vc_elm_create_object(btn, &vc_elm_buttons_h);
  *		vc_elm_set_command(vc_elm_buttons_h, "Button");
- *		vc_elm_set_hint(vc_elm_buttons_h, "Button");
+ *		vc_elm_set_command_hint(vc_elm_buttons_h, "Button");
  *
  *		evas_object_show(btn);
  *		return 0;
@@ -119,11 +122,12 @@
  * @section VOICE_CONTROL_ELEMENTARY_MODULE_FEATURE Related Features
  * This API is related with the following features:<br>
  *  - http://tizen.org/feature/microphone<br>
+ *  - http://tizen.org/feature/speech.control<br>
  *
  * It is recommended to design feature related codes in your application for reliability.<br>
  * You can check if a device supports the related features for this API by using @ref CAPI_SYSTEM_SYSTEM_INFO_MODULE, thereby controlling the procedure of your application.<br>
  * To ensure your application is only running on the device with specific features, please define the features in your manifest file using the manifest editor in the SDK.<br>
- * More details on featuring your application can be found from <a href="../org.tizen.mobile.native.appprogramming/html/ide_sdk_tools/feature_element.htm"><b>Feature Element</b>.</a>
+ * More details on featuring your application can be found from <a href="https://developer.tizen.org/development/tools/native-tools/manifest-text-editor#feature"><b>Feature Element</b>.</a>
  * 
  */
 

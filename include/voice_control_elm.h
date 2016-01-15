@@ -58,7 +58,7 @@ typedef enum {
 * @brief This enum describes directions of the widget hints.
 * @since_tizen 2.4
 *
-* @see vc_elm_set_hint_direction()
+* @see vc_elm_set_command_hint_direction()
 *
 * @image html hints_orientation.png Example: various hints orientations.
 */
@@ -373,7 +373,8 @@ int vc_elm_create_item(Elm_Object_Item* item, vc_elm_h* vc_elm);
 *
 * @pre The vc elm handle should be valid with vc_elm_create_object() or vc_elm_create_item().
 *
-* @see vc_elm_create()
+* @see vc_elm_create_object()
+* @see vc_elm_create_item()
 */
 int vc_elm_destroy(vc_elm_h vc_elm);
 
@@ -602,9 +603,9 @@ int vc_elm_set_current_language_changed_cb(vc_elm_current_language_changed_cb ca
 *
 * @pre vc_elm_initialize() should be successful.
 *
-* @see vc_mgr_set_current_language_changed_cb()
+* @see vc_elm_set_current_language_changed_cb()
 */
-int vc_elm_unset_current_language_changed_cb();
+int vc_elm_unset_current_language_changed_cb(void);
 
 
 #ifdef _cplusplus
