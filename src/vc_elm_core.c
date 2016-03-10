@@ -220,9 +220,10 @@ Eina_Bool _recognize_command(const char *cmd, const char *param1, const char *pa
 		}
 	}
 	if (found) {
+		char *tmp_buf = NULL;
 		char *tmp_cmd = strdup(cmd);
-		char *command = strtok(tmp_cmd, " ");
-		char *param = strtok(NULL, "'");
+		char *command = strtok_r(tmp_cmd, " ", &tmp_buf);
+		char *param = strtok_r(NULL, "'", &tmp_buf);
 		found->cmd = command;
 
 		VC_ELM_LOG_DBG("unwrapping %s %s for %s", param1, param2, _get_ui_object_name(found->obj));
