@@ -62,6 +62,8 @@ void _vc_elm_add_tooltip(Evas_Object *obj, const char *text);
  */
 void _vc_elm_relayout_and_show_tooltips();
 
+int _vc_elm_relayout_changed();
+
 const char *_vc_elm_get_data_key(vc_elm_data_key key);
 
 #ifdef __cplusplus

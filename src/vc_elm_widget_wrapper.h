@@ -61,10 +61,13 @@ int _vc_elm_widget_wrapper_commit_commands(vc_elm_widget_wrapper_result_cb callb
  */
 void _vc_elm_widget_wrapper_set_show_tooltips_callback(vc_elm_widget_wrapper_show_tooltips_callback callback);
 
-int vc_elm_widget_wrapper_set_current_language_changed_callback(vc_elm_widget_wrapper_language_changed_callback callback, void *user_data);
+int _vc_elm_widget_wrapper_set_current_language_changed_callback(vc_elm_widget_wrapper_language_changed_callback callback, void *user_data);
 
-int vc_elm_widget_wrapper_unset_current_language_changed_callback();
+int _vc_elm_widget_wrapper_unset_current_language_changed_callback();
 
+void _vc_elm_widget_wrapper_clear_commands();
+
+int _vc_elm_widget_wrapper_cancel();
 
 #ifdef __cplusplus
 }

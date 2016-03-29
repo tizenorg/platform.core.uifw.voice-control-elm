@@ -2,6 +2,7 @@ FILE(GLOB VC_ELM_SOURCES *.c)
 
 SET(VC_ELM_PKGS
 	capi-base-common
+	capi-system-info
 	evas
 	eina
 	ecore

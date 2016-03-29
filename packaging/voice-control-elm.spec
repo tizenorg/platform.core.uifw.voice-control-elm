@@ -1,6 +1,6 @@
 Name:		voice-control-elm
 Summary:	voice-control-elm library
-Version:	0.2.0
+Version:	0.2.1
 Release:	1
 Group:		Graphics & UI Framework/Voice Framework
 License:	Apache-2.0
@@ -12,15 +12,15 @@ BuildRequires:	cmake
 BuildRequires:	edje-tools
 BuildRequires:	pkgconfig(appcore-efl)
 BuildRequires:	pkgconfig(capi-base-common)
-BuildRequires:	pkgconfig(evas)
-BuildRequires:	pkgconfig(eina)
-BuildRequires:	pkgconfig(ecore)
-BuildRequires:	pkgconfig(elementary)
-BuildRequires:	pkgconfig(voice-control-widget)
+BuildRequires:  pkgconfig(capi-system-info)
 BuildRequires:	pkgconfig(dlog)
+BuildRequires:	pkgconfig(ecore)
+BuildRequires:	pkgconfig(eina)
 BuildRequires:	pkgconfig(edje)
-BuildRequires:	pkgconfig(efl-assist)
+BuildRequires:	pkgconfig(elementary)
+BuildRequires:	pkgconfig(evas)
 BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(voice-control-widget)
 BuildRequires:	gettext-tools
 
 %description
@@ -46,16 +46,16 @@ mkdir objdir
 %{?SRPOL_DEBUG:
 (cd objdir && cmake .. -DVERSION=%{version} \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-    -DLIBDIR=%{_libdir} \
-    -DINCLUDEDIR=%{_includedir} \
+	-DLIBDIR=%{_libdir} \
+	-DINCLUDEDIR=%{_includedir} \
 	-DCMAKE_BUILD_TYPE=Debug \
 	-DSRPOL_DEBUG="1")
 }
 %{!?SRPOL_DEBUG:
 (cd objdir && cmake .. -DVERSION=%{version} \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-    -DLIBDIR=%{_libdir} \
-    -DINCLUDEDIR=%{_includedir} \
+	-DLIBDIR=%{_libdir} \
+	-DINCLUDEDIR=%{_includedir} \
 	-DCMAKE_BUILD_TYPE=Debug \
 	-DSRPOL_DEBUG="0")
 }

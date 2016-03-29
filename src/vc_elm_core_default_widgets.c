@@ -62,7 +62,7 @@ enum SCROLL_DIRECTION {
 	TO_END
 };
 
-static void __set_toooltips_position_on_visible_items(Evas_Object *parent, Elm_Object_Item *(*get_first)(const Evas_Object *obj, void *user_data), Elm_Object_Item *(*get_next)(const Elm_Object_Item *item, void *user_data), void *user_data);
+static void __set_tooltips_position_on_visible_items(Evas_Object *parent, Elm_Object_Item *(*get_first)(const Evas_Object *obj, void *user_data), Elm_Object_Item *(*get_next)(const Elm_Object_Item *item, void *user_data), void *user_data);
 
 /**
  * @brief Function for scrolling elementary object
@@ -455,7 +455,7 @@ static Eina_Bool __genlist_filter_func(Evas_Object *obj, const char *action, voi
 	(void)action;
 	(void)user_data;
 
-	__set_toooltips_position_on_visible_items(obj, __genlist_filter_first_item_get, __genlist_filter_item_next_get, NULL);
+	__set_tooltips_position_on_visible_items(obj, __genlist_filter_first_item_get, __genlist_filter_item_next_get, NULL);
 
 	first = __genlist_filter_first_item_get(obj, NULL);
 	last = __genlist_filter_last_item_get(obj, NULL);
@@ -595,7 +595,7 @@ static void __list_activator_func(Evas_Object *obj, void *data, const char *acti
 /**
  * @brief Function found and set voice tooltips on list
  */
-static void __set_toooltips_position_on_visible_items(Evas_Object *parent, Elm_Object_Item *(*get_first)(const Evas_Object *obj, void *user_data), Elm_Object_Item *(*get_next)(const Elm_Object_Item *item, void *user_data), void *user_data)
+static void __set_tooltips_position_on_visible_items(Evas_Object *parent, Elm_Object_Item *(*get_first)(const Evas_Object *obj, void *user_data), Elm_Object_Item *(*get_next)(const Elm_Object_Item *item, void *user_data), void *user_data)
 {
 	Elm_Object_Item *item = get_first(parent, user_data);
 	vc_elm_direction_e direction = VC_ELM_DIRECTION_CENTER;
@@ -673,7 +673,7 @@ static Eina_Bool __list_filter_func(Evas_Object *obj, const char *action, void *
 	(void)action;
 	(void)user_data;
 
-	__set_toooltips_position_on_visible_items(obj, __list_filter_first_item_get, list_filter_item_next_get, NULL);
+	__set_tooltips_position_on_visible_items(obj, __list_filter_first_item_get, list_filter_item_next_get, NULL);
 	first = __list_filter_first_item_get(obj, NULL);
 	last = list_filter_last_item_get(obj, NULL);
 	first_visible = _vc_elm_core_get_visible_item(obj, __list_filter_first_item_get, list_filter_item_next_get, NULL);

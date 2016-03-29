@@ -28,7 +28,7 @@ extern "C" {
 /**
  * @brief Structure that contains Evas_Object dimensions
  */
- struct _R {
+struct _R {
 	int x;
 	int y;
 	int w;

@@ -23,9 +23,7 @@ INCLUDE(FindPkgConfig)
 SET(CMAKE_BUILD_TYPE "Release")
 SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -g -fprofile-arcs -ftest-coverage -D_GNU_SOURCE")
 
-IF (LIBDIR MATCHES "/usr/lib64")
-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DLIB64")
-ENDIF (LIBDIR)
+ADD_DEFINITIONS("-DVOICE_LIBDIR=\"${LIBDIR}\"")
 
 # CMake settings
 MESSAGE(STATUS "========================================")
@@ -79,10 +77,10 @@ MESSAGE(STATUS "CMAKE_RANLIB: " ${CMAKE_RANLIB})
 MESSAGE(STATUS "========================================")
 
 # Warning flags
-#ADD_DEFINITIONS("-Werror")		# Generate all warnings as errors
+ADD_DEFINITIONS("-Werror")		# Generate all warnings as errors
 ADD_DEFINITIONS("-Wall")		# Generate all warnings
 ADD_DEFINITIONS("-Wextra")		# Generate even more extra warnings
-ADD_DEFINITIONS("-pedantic")		# Accept only pedantic code
+#ADD_DEFINITIONS("-pedantic")		# Accept only pedantic code
 ADD_DEFINITIONS("-Wwrite-strings")	# Do not accept writing to constant string memory
 ADD_DEFINITIONS("-Winit-self")		# Do not accept initializing variable with itself
 ADD_DEFINITIONS("-Wcast-align")		# Do not accept misaligning with casting

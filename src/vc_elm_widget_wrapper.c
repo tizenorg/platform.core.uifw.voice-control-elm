@@ -50,27 +50,27 @@ static void __vc_language_changed_cb(const char *previous, const char *current, 
 #define VC_ERROR_CHECK(args) do {							\
 		int err = args;								\
 		const char *msg = # args;						\
-			switch (err) {							\
-				VC_CMD_ERROR_CHECK_CASE(VC_ERROR_OUT_OF_MEMORY);	\
-				VC_CMD_ERROR_CHECK_CASE(VC_ERROR_IO_ERROR);		\
-				VC_CMD_ERROR_CHECK_CASE(VC_ERROR_INVALID_PARAMETER);	\
-				VC_CMD_ERROR_CHECK_CASE(VC_ERROR_TIMED_OUT);		\
-				VC_CMD_ERROR_CHECK_CASE(VC_ERROR_RECORDER_BUSY);	\
-				VC_CMD_ERROR_CHECK_CASE(VC_ERROR_PERMISSION_DENIED);	\
-				VC_CMD_ERROR_CHECK_CASE(VC_ERROR_NOT_SUPPORTED);	\
-				VC_CMD_ERROR_CHECK_CASE(VC_ERROR_INVALID_STATE);	\
-				VC_CMD_ERROR_CHECK_CASE(VC_ERROR_INVALID_LANGUAGE);	\
-				VC_CMD_ERROR_CHECK_CASE(VC_ERROR_ENGINE_NOT_FOUND);	\
-				VC_CMD_ERROR_CHECK_CASE(VC_ERROR_OPERATION_FAILED);	\
-				VC_CMD_ERROR_CHECK_CASE(VC_ERROR_OPERATION_REJECTED);	\
-				VC_CMD_ERROR_CHECK_CASE(VC_ERROR_ITERATION_END);	\
-				VC_CMD_ERROR_CHECK_CASE(VC_ERROR_EMPTY);		\
-				case VC_ERROR_NONE:					\
-					VC_ELM_LOG_DBG("NO error in (%s)", msg);	\
-					break;						\
-				default:						\
-					VC_ELM_LOG_ERR("Unkown error in (%s)", msg);	\
-			}								\
+		switch (err) {							\
+			VC_CMD_ERROR_CHECK_CASE(VC_ERROR_OUT_OF_MEMORY);	\
+			VC_CMD_ERROR_CHECK_CASE(VC_ERROR_IO_ERROR);		\
+			VC_CMD_ERROR_CHECK_CASE(VC_ERROR_INVALID_PARAMETER);	\
+			VC_CMD_ERROR_CHECK_CASE(VC_ERROR_TIMED_OUT);		\
+			VC_CMD_ERROR_CHECK_CASE(VC_ERROR_RECORDER_BUSY);	\
+			VC_CMD_ERROR_CHECK_CASE(VC_ERROR_PERMISSION_DENIED);	\
+			VC_CMD_ERROR_CHECK_CASE(VC_ERROR_NOT_SUPPORTED);	\
+			VC_CMD_ERROR_CHECK_CASE(VC_ERROR_INVALID_STATE);	\
+			VC_CMD_ERROR_CHECK_CASE(VC_ERROR_INVALID_LANGUAGE);	\
+			VC_CMD_ERROR_CHECK_CASE(VC_ERROR_ENGINE_NOT_FOUND);	\
+			VC_CMD_ERROR_CHECK_CASE(VC_ERROR_OPERATION_FAILED);	\
+			VC_CMD_ERROR_CHECK_CASE(VC_ERROR_OPERATION_REJECTED);	\
+			VC_CMD_ERROR_CHECK_CASE(VC_ERROR_ITERATION_END);	\
+			VC_CMD_ERROR_CHECK_CASE(VC_ERROR_EMPTY);		\
+		case VC_ERROR_NONE:					\
+			VC_ELM_LOG_DBG("NO error in (%s)", msg);	\
+			break;						\
+		default:						\
+			VC_ELM_LOG_ERR("Unkown error in (%s)", msg);	\
+		}								\
 	} while (0)
 
 static void __vc_widget_send_current_command_group_cb(vc_cmd_list_h *vc_group, void *user_data)
@@ -248,6 +248,12 @@ static void __vc_service_state_changed_cb(vc_service_state_e previous, vc_servic
 {
 	(void)user_data;
 
+	if (previous == VC_SERVICE_STATE_RECORDING)
+		_vc_elm_core_unregister_view_change_detection();
+	else if (current == VC_SERVICE_STATE_RECORDING)
+		_vc_elm_core_register_view_change_detection();
+
+
 	if ((VC_SERVICE_STATE_PROCESSING == previous && VC_SERVICE_STATE_READY == current) || (VC_SERVICE_STATE_RECORDING == previous && VC_SERVICE_STATE_READY == current)) {
 		VC_ELM_LOG_DBG("VC Service processing ends, clear commands");
 		if (NULL != vcw.group) {
@@ -338,7 +344,7 @@ static void __vc_language_changed_cb(const char *previous, const char *current, 
 	return;
 }
 
-int vc_elm_widget_wrapper_set_current_language_changed_callback(vc_elm_widget_wrapper_language_changed_callback callback, void *data)
+int _vc_elm_widget_wrapper_set_current_language_changed_callback(vc_elm_widget_wrapper_language_changed_callback callback, void *data)
 {
 	if (NULL == callback) {
 		VC_ELM_LOG_ERR("Null parameter");
@@ -351,7 +357,7 @@ int vc_elm_widget_wrapper_set_current_language_changed_callback(vc_elm_widget_wr
 
 }
 
-int vc_elm_widget_wrapper_unset_current_language_changed_callback()
+int _vc_elm_widget_wrapper_unset_current_language_changed_callback()
 {
 	if (NULL == vcw.language_changed_cb) {
 		VC_ELM_LOG_ERR("No registered cb");
@@ -362,3 +368,24 @@ int vc_elm_widget_wrapper_unset_current_language_changed_callback()
 	vcw.lang_user_data = NULL;
 	return 0;
 }
+
+void _vc_elm_widget_wrapper_clear_commands()
+{
+	if (NULL != vcw.group) {
+		vc_cmd_list_destroy(vcw.group, true);
+		vcw.group = NULL;
+	}
+}
+
+int _vc_elm_widget_wrapper_cancel()
+{
+	int ret = VC_ELM_ERROR_NONE;
+	VC_ELM_LOG_DBG("===========");
+
+	ret = vc_widget_cancel();
+	if (VC_ELM_ERROR_NONE != ret) {
+		VC_ELM_LOG_ERR("Error while widget cancel (%d)", ret);
+	}
+	return ret;
+}
+

@@ -1,6 +1,11 @@
-vc-widget-elm (0.2.0) -- Thu, 29 May 2014
+voice-control-elm (0.2.1) -- Wed, 17 June 2015
+
+  * modify unused smack label (Wonnam Jang <wn.jang@samsung.com>)
+  * updates codes according to coding rule (Wonnam Jang <wn.jang@samsung.com>)
+
+voice-control-elm (0.2.0) -- Thu, 29 May 2015
 
   * Update version 0.2.0 (Kwangyoun Kim <ky85.kim@samsung.com>)
 
-vc-widget-elm (0.0.1)
+voice-control-elm (0.0.1)
   * Release version 0.1.0 (Lukasz Wrzosek <l.wrzosek@samsung.com>)

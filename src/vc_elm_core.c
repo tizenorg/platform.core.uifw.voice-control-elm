@@ -61,10 +61,14 @@ static char *g_tooltips_image_path = NULL;
 static char *g_tooltips_default_direction = NULL;
 static char *g_tooltips_show = NULL;
 
+static Ecore_Timer *g_animation_view_idler = NULL;
+static Eina_Bool g_view_changed = EINA_FALSE;
+
 #define HIDE 0xa
 #define X_VISIBILITY_TOLERANCE 32.0
 #define Y_VISIBILITY_TOLERANCE 54.0
 
+static void   __idle_changed(Ecore_Evas *ee);
 const Eina_Hash *_vc_elm_core_get_config_action_map()
 {
 	return g_config_action_map;
@@ -303,6 +307,7 @@ void _vc_elm_core_init()
 	g_config_widget_map = eina_hash_string_superfast_new(__hash_entry_eina_list_free_cb);
 
 	ret = _vc_elm_core_read_xml_data();
+	g_view_changed = EINA_FALSE;
 	VC_ELM_LOG_DBG("XML RETURNED %d", ret);
 }
 
@@ -398,7 +403,7 @@ static Eina_List *__get_objects_of_visible_items(Evas_Object *parent, Elm_Object
 			eina_hash_add(registered_item_map, name, strdup("1"));
 		}
 		VC_ELM_LOG_DBG("have a visible item %d %d %d %d", x_1, y_1, w_1, h_1);
-		if (NULL == name)
+		if ((NULL == name) || (!strcmp("Elm_Layout", name)))
 			evas_object_data_set(obj, "special_item", item);
 		ret = eina_list_append(ret, obj);
 	} while ((item = get_next(item)) != NULL);
@@ -693,9 +698,8 @@ static Eina_Bool __elm_widget_foreach_to_list_add(Evas_Object *widget, Eina_List
 
 	if (obj_name) {
 		if ((!strcmp("Elm_Inwin", obj_name)) || (!strcmp("Elm_Popup", obj_name)) || (!strcmp("Elm_Ctxpopup", obj_name))) {
-			if (list && (*list)) {
-				eina_list_free(*list);
-				*list = NULL;
+			if (*list) {
+				*list = eina_list_free(*list);
 			}
 		} else if ((!strcmp("Elm_Icon", obj_name))) {
 			if ((NULL != parent_obj_name && !strcmp(parent_obj_name, "Elm_Genlist")) && (NULL != parents_parent_obj_name && !strcmp(parents_parent_obj_name, "Elm_Fileselector")))
@@ -756,7 +760,7 @@ void _show_tooltips()
 		obj_name = _get_ui_object_name(obj);
 		parent_obj_name = _get_ui_object_name(parent);
 
-		if (!obj_name && evas_object_data_get(obj, "special_item"))
+		if ((!obj_name && evas_object_data_get(obj, "special_item")) || (!strcmp(obj_name, "Elm_Layout") && evas_object_data_get(obj, "special_item")))
 			obj_name = eina_stringshare_add("evc-item");
 
 		if (!obj_name) {
@@ -819,6 +823,7 @@ void _show_tooltips()
 	}
 
 	_vc_elm_relayout_and_show_tooltips();
+	g_view_changed = EINA_FALSE;
 }
 
 struct vc_elm_core_widget_info *_vc_elm_core_register_widget(const char *widget_name, vc_elm_get_subobjects_cb get_subobjects_func, vc_elm_command_filter_cb is_filtered_func, void *user_data)
@@ -906,7 +911,7 @@ static void __vc_add_commands()
 		registered = 0;
 		if (obj_name)
 			VC_ELM_LOG_DBG("Adding command for %s", obj_name);
-		if (!obj_name && evas_object_data_get(obj, "special_item"))
+		if ((!obj_name && evas_object_data_get(obj, "special_item")) || (!strcmp(obj_name, "Elm_Layout") && evas_object_data_get(obj, "special_item")))
 			obj_name = eina_stringshare_add("evc-item");
 		if (!obj_name) {
 			VC_ELM_LOG_DBG("Widget '%p' has no type specified", obj_name);
@@ -1271,20 +1276,39 @@ Eina_Bool _vc_elm_core_set_object_custom_hint(Evas_Object *obj, const char *imag
 		return EINA_FALSE;
 	}
 	evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_HINT_IMAGE_PATH), (const void *)image_path);
-	evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X), (void *)pos_x);
-	evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y), (void *)pos_y);
+
+	if (pos_x >= 0)
+		evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X), (void *)(pos_x + 1));
+	else
+		evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X), (void *)(pos_x - 1));
+
+	if (pos_y >= 0)
+		evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y), (void *)(pos_y + 1));
+	else
+		evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y), (void *)(pos_y - 1));
 	return EINA_TRUE;
 }
 
 Eina_Bool _vc_elm_core_get_object_custom_hint(Evas_Object *obj, const char **image_path, int *pos_x, int *pos_y)
 {
+	int acc;
 	if (NULL == obj) {
 		VC_ELM_LOG_ERR("Invalid Evas_Object parameter detected!");
 		return EINA_FALSE;
 	}
 	*image_path = (const char *)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_HINT_IMAGE_PATH));
-	*pos_x = (int)(evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X)));
-	*pos_y = (int)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y));
+
+	acc = (int)(evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X)));
+	if (acc > 0)
+		*pos_x = acc - 1;
+	else
+		*pos_x = acc + 1;
+
+	acc = (int)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y));
+	if (acc > 0)
+		*pos_y = acc - 1;
+	else
+		*pos_y = acc + 1;
 	return EINA_TRUE;
 }
 
@@ -1395,13 +1419,13 @@ Eina_Bool _vc_elm_core_del_object_hint_direction(Evas_Object *obj)
 
 Eina_Bool _vc_elm_core_set_sub_item_hint_direction(Evas_Object *obj, vc_elm_direction_e direction)
 {
-	evas_object_data_set(obj, VC_ELM_SUB_ITEM_DIRECTION, (void *)direction);
+	evas_object_data_set(obj, VC_ELM_SUB_ITEM_DIRECTION, (void *)(direction + 1));
 	return EINA_TRUE;
 }
 
 Eina_Bool _vc_elm_core_get_sub_item_hint_direction(Evas_Object *obj, vc_elm_direction_e *direction)
 {
-	*direction = (vc_elm_direction_e)evas_object_data_get(obj, VC_ELM_SUB_ITEM_DIRECTION);
+	*direction = ((vc_elm_direction_e)evas_object_data_get(obj, VC_ELM_SUB_ITEM_DIRECTION)) - 1;
 	return EINA_TRUE;
 }
 
@@ -1427,10 +1451,50 @@ static void __show_or_hide_tooltips_callback(bool show_or_hide)
 		_hide_tooltips();
 }
 
-/*static void   __idle_changed(Ecore_Evas *ee) {
+static Eina_Bool on_idle(void *data)
+{
+	int ret = -1;
+	(void)data;
+	VC_ELM_LOG_DBG("End Of View Transformation, tooltip displayed (%d), changed (%d)", g_tooltips_displayed, g_view_changed);
+
+	if (g_animation_view_idler) {
+		ecore_timer_del(g_animation_view_idler);
+		g_animation_view_idler = NULL;
+	}
+
+	if (g_tooltips_displayed) {
+
+		if (g_view_changed){
+			_vc_elm_widget_wrapper_clear_commands();
+			/*_show_tooltips();*/
+			ret = _vc_elm_widget_wrapper_cancel();
+			if (0 != ret) {
+				VC_ELM_LOG_ERR("Error to cancel widget");
+			}
+			g_view_changed = EINA_FALSE;
+		} else if (_vc_elm_relayout_changed()) {
+			_hide_tooltips();
+			ecore_main_loop_iterate();
+			_vc_elm_widget_wrapper_clear_commands();
+			_show_tooltips();
+		}
+	}
+	return EINA_FALSE;
+}
+
+static void __idle_changed(Ecore_Evas *ee)
+{
 	(void)ee;
-	VC_ELM_LOG_DBG("Evas has changed");
-}*/
+	VC_ELM_LOG_DBG("View changed");
+	if (g_tooltips_displayed && g_view_changed){
+		_hide_tooltips();
+	}
+	if (g_animation_view_idler) {
+		ecore_timer_del(g_animation_view_idler);
+		g_animation_view_idler = NULL;
+	}
+	g_animation_view_idler = ecore_timer_add(0.5, on_idle, ee);
+}
 
 /**
  * @brief Internal callback that sets the vc_widget's foreground option to true.
@@ -1446,7 +1510,7 @@ static void __vc_elm_event_window_focus_in(void *data, Evas_Object *obj, void *e
 	VC_ELM_LOG_DBG("Focus in");
 }
 
-/**
+/*
  * @brief Internal callback that sets the vc_widget's foreground option to false
  */
 static void __vc_elm_event_window_focus_out(void *data, Evas_Object *obj, void *event_info)
@@ -1462,6 +1526,20 @@ static void __vc_elm_event_window_focus_out(void *data, Evas_Object *obj, void *
 	VC_ELM_LOG_DBG("Focus out");
 }
 
+void _vc_elm_core_register_view_change_detection()
+{
+	Ecore_Evas *ecevas = NULL;
+	ecevas = ecore_evas_ecore_evas_get(evas_object_evas_get(g_default_window));
+	ecore_evas_callback_post_render_set(ecevas, __idle_changed);
+}
+
+void _vc_elm_core_unregister_view_change_detection()
+{
+	Ecore_Evas *ecevas = NULL;
+	ecevas = ecore_evas_ecore_evas_get(evas_object_evas_get(g_default_window));
+	ecore_evas_callback_post_render_set(ecevas, NULL);
+}
+
 static Eina_Bool __idle_enter(void *data)
 {
 	Eina_List *l;
@@ -1474,13 +1552,8 @@ static Eina_Bool __idle_enter(void *data)
 		evas_object_smart_callback_del(g_default_window, "unfocused", __vc_elm_event_window_focus_out);
 	}
 
-#if 0
-	VC_ELM_LOG_DBG("Focused %ud", focused);
 	VC_ELM_LOG_DBG("Focused g_default %ud", elm_win_xwindow_get(g_default_window));
-	if (!is_focused || focused != elm_win_xwindow_get(g_default_window)) {
-#else
 	if (!is_focused) {
-#endif
 		/* window changed, we need to get new one */
 		VC_ELM_LOG_DBG("list count %d", eina_list_count(ui_objects_list));
 		EINA_LIST_FOREACH(ui_objects_list, l, obj) {
@@ -1488,13 +1561,8 @@ static Eina_Bool __idle_enter(void *data)
 			VC_ELM_LOG_DBG("foreach obj %p", (void*)obj);
 			window = elm_object_top_widget_get(obj);
 			if (window && elm_win_focus_get(window) == EINA_TRUE) {
-				/*Ecore_Evas *ecevas = NULL;*/
-#if 0
 				VC_ELM_LOG_DBG("NEW Focused g_default %ud", elm_win_xwindow_get(window));
-#endif
 				g_default_window = window;
-				/*ecevas = ecore_evas_ecore_evas_get(evas_object_evas_get(g_default_window));
-				ecore_evas_callback_post_render_set(ecevas, __idle_changed);*/
 				break;
 			}
 		}
@@ -1502,12 +1570,11 @@ static Eina_Bool __idle_enter(void *data)
 
 	evas_object_smart_callback_add(g_default_window, "focused", __vc_elm_event_window_focus_in, NULL);
 	evas_object_smart_callback_add(g_default_window, "unfocused", __vc_elm_event_window_focus_out, NULL);
+
 	/* OK, window set properly now */
 
 	_vc_elm_set_tooltips_window(g_default_window);
-#if 0
 	VC_ELM_LOG_DBG("elm_win_xwindow_get = %p", (void*)elm_win_xwindow_get(g_default_window));
-#endif
 
 	if (elm_win_wm_rotation_supported_get(g_default_window)) {
 		int rots[4] = {0, 90, 180, 270};
@@ -1533,10 +1600,10 @@ static void __rotation(void *data, Evas_Object *obj, void *event_info)
 	(void)event_info;
 	if (!g_tooltips_displayed)
 		return;
-	__show_or_hide_tooltips_callback(false);
+	/*__show_or_hide_tooltips_callback(false);
 	ecore_main_loop_iterate();
 	__show_or_hide_tooltips_callback(true);
-	ecore_main_loop_iterate();
+	ecore_main_loop_iterate();*/
 }
 
 const char *_vc_elm_get_custom_widget_name()
@@ -1648,16 +1715,22 @@ int _vc_elm_core_read_xml_data()
 						if (0 == xmlStrcmp(child->name, XML_CAST VC_ELM_TAG_HINT_SHOW)) {
 							key = xmlNodeGetContent(child);
 							VC_ELM_LOG_DBG("hint show %s", (char*)key);
+							if (g_tooltips_show)
+								free(g_tooltips_show);
 							g_tooltips_show = strdup((char*)key);
 							xmlFree(key);
 						} else if (0 == xmlStrcmp(child->name, XML_CAST VC_ELM_TAG_HINT_DIRECTION)) {
 							key = xmlNodeGetContent(child);
 							VC_ELM_LOG_DBG("hint direction %s", (char*)key);
+							if (g_tooltips_default_direction)
+								free(g_tooltips_default_direction);
 							g_tooltips_default_direction = strdup((char*)key);
 							xmlFree(key);
 						} else if (0 == xmlStrcmp(child->name, XML_CAST VC_ELM_TAG_HINT_IMAGE)) {
 							key = xmlNodeGetContent(child);
 							VC_ELM_LOG_DBG("hint image %s", (char*)key);
+							if (g_tooltips_image_path)
+								free(g_tooltips_image_path);
 							g_tooltips_image_path = strdup((char*)key);
 							xmlFree(key);
 						}
@@ -1696,12 +1769,18 @@ int _vc_elm_core_read_xml_data()
 int _vc_elm_core_destroy_xml_data()
 {
 
-	if (g_tooltips_show)
+	if (g_tooltips_show) {
 		free(g_tooltips_show);
-	if (g_tooltips_default_direction)
+		g_tooltips_show = NULL;
+	}
+	if (g_tooltips_default_direction) {
 		free(g_tooltips_default_direction);
-	if (g_tooltips_image_path)
+		g_tooltips_default_direction = NULL;
+	}
+	if (g_tooltips_image_path) {
 		free(g_tooltips_image_path);
+		g_tooltips_image_path = NULL;
+	}
 	return VC_ELM_ERROR_NONE;
 }
 
@@ -1745,4 +1824,10 @@ int _vc_elm_core_get_tooltip_show()
 		return EINA_TRUE;
 
 	return EINA_FALSE;
+}
+
+void _vc_elm_core_set_view_changed()
+{
+	g_view_changed = EINA_TRUE;
+	__idle_changed(NULL);
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-
+#include <system_info.h>
 #include "vc_elm_main.h"
 #include <voice_control_elm.h>
 
@@ -54,8 +54,43 @@ struct __vc_elm_widget_cb_data_s {
 
 typedef struct __vc_elm_widget_cb_data_s vc_elm_widget_cb_data_s;
 
+static int g_feature_enabled = -1;
+
+static int __vc_elm_get_feature_enabled()
+{
+	if (0 == g_feature_enabled) {
+		VC_ELM_LOG_DBG("[ERROR] Voice control feature NOT supported");
+		return VC_ELM_ERROR_NOT_SUPPORTED;
+	} else if (-1 == g_feature_enabled) {
+		bool vc_supported = false;
+		bool mic_supported = false;
+		if (0 == system_info_get_platform_bool(VC_ELM_FEATURE_PATH, &vc_supported)) {
+			if (0 == system_info_get_platform_bool(VC_ELM_MIC_FEATURE_PATH, &mic_supported)) {
+				if (false == vc_supported || false == mic_supported) {
+					VC_ELM_LOG_DBG("[ERROR] Voice control feature NOT supported");
+					g_feature_enabled = 0;
+					return VC_ELM_ERROR_NOT_SUPPORTED;
+				}
+
+				g_feature_enabled = 1;
+			} else {
+				VC_ELM_LOG_DBG("[ERROR] Fail to get feature value");
+				return VC_ELM_ERROR_NOT_SUPPORTED;
+			}
+		} else {
+			VC_ELM_LOG_DBG("[ERROR] Fail to get feature value");
+			return VC_ELM_ERROR_NOT_SUPPORTED;
+		}
+	}
+	return 0;
+}
+
 int vc_elm_initialize()
 {
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
+
 	if (true == is_vc_elm_initialized) {
 		VC_ELM_LOG_DBG("vc elm is already initialized");
 		return VC_ELM_ERROR_INVALID_STATE;
@@ -79,14 +114,17 @@ int vc_elm_deinitialize()
 	Eina_List *l;
 	vc_elm_h handler = NULL;
 
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
+
 	if (false == is_vc_elm_initialized) {
 		VC_ELM_LOG_DBG("vc elm is already deinitialized");
 		return VC_ELM_ERROR_INVALID_STATE;
 	}
 
 	if (NULL != g_handlers_list) {
-		EINA_LIST_FOREACH(g_handlers_list, l, handler)
-		{
+		EINA_LIST_FOREACH(g_handlers_list, l, handler) {
 			vc_elm_unset_command(handler);
 			vc_elm_unset_command_hint(handler);
 			vc_elm_destroy(handler);
@@ -106,7 +144,12 @@ int vc_elm_deinitialize()
 
 int vc_elm_foreach_supported_languages(vc_elm_supported_language_cb callback, void *user_data)
 {
-	int ret = vc_widget_foreach_supported_languages(callback, user_data);
+	int ret;
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
+
+	ret = vc_widget_foreach_supported_languages(callback, user_data);
 	switch (ret) {
 	case VC_ERROR_NONE:
 		ret = VC_ELM_ERROR_NONE;
@@ -126,7 +169,12 @@ int vc_elm_foreach_supported_languages(vc_elm_supported_language_cb callback, vo
 
 int vc_elm_get_current_language(char **language)
 {
-	int ret = vc_widget_get_current_language(language);
+	int ret;
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
+
+	ret = vc_widget_get_current_language(language);
 	switch (ret) {
 	case VC_ERROR_NONE:
 		ret = VC_ELM_ERROR_NONE;
@@ -163,6 +211,10 @@ int vc_elm_foreach_supported_widgets(vc_elm_widget_cb callback, void *user_data)
 {
 	vc_elm_widget_cb_data_s data;
 	const Eina_Hash  *hash = NULL;
+
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 	if (NULL == callback) {
 		VC_ELM_LOG_ERR("Invalid parameters detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -189,6 +241,9 @@ int vc_elm_foreach_supported_actions(const char *widget, vc_elm_action_cb callba
 	Eina_List *l = NULL;
 	const char *action_tag = NULL;
 
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 	if ((NULL == widget) || (NULL == callback)) {
 		VC_ELM_LOG_ERR("Invalid parameters detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -207,8 +262,7 @@ int vc_elm_foreach_supported_actions(const char *widget, vc_elm_action_cb callba
 		VC_ELM_LOG_ERR("Action list is NULL!");
 		return VC_ELM_ERROR_OPERATION_FAILED;
 	}
-	EINA_LIST_FOREACH(actions_list, l, action_tag)
-	{
+	EINA_LIST_FOREACH(actions_list, l, action_tag) {
 		if (NULL != action_tag) {
 			callback(action_tag, user_data);
 		}
@@ -221,6 +275,10 @@ int vc_elm_get_action_command(const char *action, char **command)
 	const Eina_Hash *hash = NULL;
 	const char *command_name = NULL;
 	size_t len = 0;
+
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 	if ((NULL == action) || (NULL == command)) {
 		VC_ELM_LOG_ERR("Invalid parameters detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -252,6 +310,9 @@ int vc_elm_get_action_command(const char *action, char **command)
 int vc_elm_create_object(Evas_Object *object, vc_elm_h *vc_elm)
 {
 	vc_elm_s *handler = NULL;
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid parameters detected! (vc_elm_h *) poiter is NULL");
@@ -280,12 +341,17 @@ int vc_elm_create_object(Evas_Object *object, vc_elm_h *vc_elm)
 	handler->data = (void *)object;
 	g_handlers_list = eina_list_append(g_handlers_list, handler);
 	*vc_elm = (vc_elm_h)handler;
+	_vc_elm_core_set_view_changed();
 	return VC_ELM_ERROR_NONE;
 }
 
 int vc_elm_create_item(Elm_Object_Item *item, vc_elm_h *vc_elm)
 {
 	vc_elm_s *handler = NULL;
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
+
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid parameters detected! (vc_elm_h *) poiter is NULL");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -309,6 +375,7 @@ int vc_elm_create_item(Elm_Object_Item *item, vc_elm_h *vc_elm)
 	handler->data = (void *)item;
 	g_handlers_list = eina_list_append(g_handlers_list, handler);
 	*vc_elm = (vc_elm_h)handler;
+	_vc_elm_core_set_view_changed();
 	return VC_ELM_ERROR_NONE;
 }
 
@@ -317,6 +384,9 @@ int vc_elm_destroy(vc_elm_h vc_elm)
 	vc_elm_s *handler = NULL;
 	Eina_List *list = NULL;
 	int type = 0;
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -336,6 +406,7 @@ int vc_elm_destroy(vc_elm_h vc_elm)
 	g_handlers_list = eina_list_remove_list(g_handlers_list, list);
 	free(handler);
 	handler = NULL;
+	_vc_elm_core_set_view_changed();
 	return VC_ELM_ERROR_NONE;
 }
 
@@ -343,6 +414,9 @@ int vc_elm_set_command(vc_elm_h vc_elm, const char *command)
 {
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	int type = 0;
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -355,6 +429,7 @@ int vc_elm_set_command(vc_elm_h vc_elm, const char *command)
 		Elm_Object_Item *it = (Elm_Object_Item *)handler->data;
 		return _vc_elm_set_item_object_command(it, command);
 	}
+	_vc_elm_core_set_view_changed();
 	return VC_ELM_ERROR_INVALID_PARAMETER;
 }
 
@@ -362,6 +437,9 @@ int vc_elm_unset_command(vc_elm_h vc_elm)
 {
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	int type = 0;
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -374,6 +452,7 @@ int vc_elm_unset_command(vc_elm_h vc_elm)
 		Elm_Object_Item *it = (Elm_Object_Item *)handler->data;
 		return _vc_elm_unset_item_object_command(it);
 	}
+	_vc_elm_core_set_view_changed();
 	return VC_ELM_ERROR_INVALID_PARAMETER;
 }
 
@@ -381,6 +460,9 @@ int vc_elm_set_command_hint(vc_elm_h vc_elm, const char* hint)
 {
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	int type = 0;
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -393,6 +475,7 @@ int vc_elm_set_command_hint(vc_elm_h vc_elm, const char* hint)
 		Elm_Object_Item *it = (Elm_Object_Item *)handler->data;
 		return _vc_elm_set_item_object_hint(it, hint);
 	}
+	_vc_elm_core_set_view_changed();
 	return VC_ELM_ERROR_INVALID_PARAMETER;
 }
 
@@ -400,6 +483,9 @@ int vc_elm_unset_command_hint(vc_elm_h vc_elm)
 {
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	int type = 0;
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -412,6 +498,7 @@ int vc_elm_unset_command_hint(vc_elm_h vc_elm)
 		Elm_Object_Item *it = (Elm_Object_Item *)handler->data;
 		return _vc_elm_unset_item_object_hint(it);
 	}
+	_vc_elm_core_set_view_changed();
 	return VC_ELM_ERROR_INVALID_PARAMETER;
 }
 
@@ -419,6 +506,9 @@ int vc_elm_set_command_hint_direction(vc_elm_h vc_elm, vc_elm_direction_e direct
 {
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	int type = 0;
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -432,6 +522,7 @@ int vc_elm_set_command_hint_direction(vc_elm_h vc_elm, vc_elm_direction_e direct
 		Evas_Object *parent = elm_object_item_widget_get(it);
 		return _vc_elm_set_sub_item_hint_direction(parent, direction);
 	}
+	_vc_elm_core_set_view_changed();
 	return VC_ELM_ERROR_INVALID_PARAMETER;
 }
 
@@ -439,6 +530,9 @@ int vc_elm_get_command_hint_direction(vc_elm_h vc_elm, vc_elm_direction_e *direc
 {
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	int type = 0;
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -459,6 +553,9 @@ int vc_elm_set_command_hint_offset(vc_elm_h vc_elm, int pos_x, int pos_y)
 {
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	int type = 0;
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -471,6 +568,7 @@ int vc_elm_set_command_hint_offset(vc_elm_h vc_elm, int pos_x, int pos_y)
 		Elm_Object_Item *it = (Elm_Object_Item *)handler->data;
 		return _vc_elm_set_item_object_custom_hint(it, NULL, pos_x, pos_y);
 	}
+	_vc_elm_core_set_view_changed();
 	return VC_ELM_ERROR_INVALID_PARAMETER;
 }
 
@@ -479,6 +577,9 @@ int vc_elm_get_command_hint_offset(vc_elm_h vc_elm, int *pos_x, int *pos_y)
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	const char *path = NULL;
 	int type = 0;
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -502,28 +603,34 @@ int vc_elm_set_current_language_changed_cb(vc_elm_current_language_changed_cb ca
 {
 	int ret = VC_ELM_ERROR_NONE;
 
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 	if (false == is_vc_elm_initialized) {
 		VC_ELM_LOG_ERR("Invalid state detected! Library not initialized!");
 		return VC_ELM_ERROR_INVALID_STATE;
 	}
 
-	ret = vc_elm_widget_wrapper_set_current_language_changed_callback(callback, user_data);
+	ret = _vc_elm_widget_wrapper_set_current_language_changed_callback(callback, user_data);
 	if (0 != ret) {
 		return VC_ELM_ERROR_OPERATION_FAILED;
 	}
 	return VC_ELM_ERROR_NONE;
 }
 
-int vc_elm_unset_current_language_changed_cb()
+int vc_elm_unset_current_language_changed_cb(void)
 {
 	int ret = VC_ELM_ERROR_NONE;
 
+	if (0 != __vc_elm_get_feature_enabled()) {
+		return VC_ERROR_NOT_SUPPORTED;
+	}
 	if (false == is_vc_elm_initialized) {
 		VC_ELM_LOG_ERR("Invalid state detected! Library not initialized!");
 		return VC_ELM_ERROR_INVALID_STATE;
 	}
 
-	ret = vc_elm_widget_wrapper_unset_current_language_changed_callback();
+	ret = _vc_elm_widget_wrapper_unset_current_language_changed_callback();
 	if (0 != ret) {
 		return VC_ELM_ERROR_OPERATION_FAILED;
 	}
