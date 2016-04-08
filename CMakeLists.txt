@@ -21,7 +21,7 @@ INCLUDE(FindPkgConfig)
 
 # Build type
 SET(CMAKE_BUILD_TYPE "Release")
-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -g -fprofile-arcs -ftest-coverage -D_GNU_SOURCE")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -g -fprofile-arcs -ftest-coverage -D_GNU_SOURCE -flto")
 
 ADD_DEFINITIONS("-DVOICE_LIBDIR=\"${LIBDIR}\"")
 
@@ -131,4 +131,3 @@ INSTALL(FILES	${PROJECT_SOURCE_DIR}/data/image.png
 
 INSTALL(FILES	${PROJECT_SOURCE_DIR}/voice-control-elm-config.xml
 	DESTINATION ${LIBDIR}/voice/vc-elm/1.0)
-
