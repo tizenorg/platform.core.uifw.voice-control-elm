@@ -41,6 +41,11 @@ extern "C" {
 * @brief This enum describes status of voice control elementary after API call
 * @since_tizen 2.4
 */
+
+#ifndef EXPORT_API
+#define EXPORT_API
+#endif // EXPORT_API
+
 typedef enum {
 	VC_ELM_ERROR_NONE		= TIZEN_ERROR_NONE,			/**< Successful */
 	VC_ELM_ERROR_OUT_OF_MEMORY	= TIZEN_ERROR_OUT_OF_MEMORY,		/**< Out of Memory */
@@ -157,7 +162,7 @@ typedef bool (*vc_elm_action_cb)(const char* action, void* user_data);
 *
 * @see vc_elm_deinitialize()
 */
-int vc_elm_initialize(void);
+EXPORT_API int vc_elm_initialize(void);
 
 /**
 * @brief Deinitializes voice control elementary module.
@@ -177,7 +182,7 @@ int vc_elm_initialize(void);
 *
 * @see vc_elm_initialize()
 */
-int vc_elm_deinitialize(void);
+EXPORT_API int vc_elm_deinitialize(void);
 
 /**
 * @brief Retrieves all supported languages using callback function.
@@ -202,7 +207,7 @@ int vc_elm_deinitialize(void);
 * @see vc_elm_supported_language_cb()
 * @see vc_elm_get_current_language()
 */
-int vc_elm_foreach_supported_languages(vc_elm_supported_language_cb callback, void* user_data);
+EXPORT_API int vc_elm_foreach_supported_languages(vc_elm_supported_language_cb callback, void* user_data);
 
 /**
 * @brief Gets current language.
@@ -227,7 +232,7 @@ int vc_elm_foreach_supported_languages(vc_elm_supported_language_cb callback, vo
 *
 * @pre vc_elm_initialize() should be successful.
 */
-int vc_elm_get_current_language(char** language);
+EXPORT_API int vc_elm_get_current_language(char** language);
 
 /**
 * @brief Retrieves all supported widget using callback function.
@@ -252,7 +257,7 @@ int vc_elm_get_current_language(char** language);
 * @see vc_elm_widget_cb()
 * @see vc_elm_foreach_supported_actions()
 */
-int vc_elm_foreach_supported_widgets(vc_elm_widget_cb callback, void* user_data);
+EXPORT_API int vc_elm_foreach_supported_widgets(vc_elm_widget_cb callback, void* user_data);
 
 /**
 * @brief Retrieves all supported actions of widget using callback function.
@@ -278,7 +283,7 @@ int vc_elm_foreach_supported_widgets(vc_elm_widget_cb callback, void* user_data)
 * @see vc_elm_action_cb()
 * @see vc_elm_foreach_supported_widgets()
 */
-int vc_elm_foreach_supported_actions(const char* widget, vc_elm_action_cb callback, void* user_data);
+EXPORT_API int vc_elm_foreach_supported_actions(const char* widget, vc_elm_action_cb callback, void* user_data);
 
 /**
 * @brief Gets action command of action.
@@ -303,7 +308,7 @@ int vc_elm_foreach_supported_actions(const char* widget, vc_elm_action_cb callba
 *
 * @pre vc_elm_initialize() should be successful.
 */
-int vc_elm_get_action_command(const char* action, char** command);
+EXPORT_API int vc_elm_get_action_command(const char* action, char** command);
 
 /**
 * @brief Creates vc elm handle for evas object.
@@ -329,7 +334,7 @@ int vc_elm_get_action_command(const char* action, char** command);
 *
 * @see vc_elm_destroy()
 */
-int vc_elm_create_object(Evas_Object* object, vc_elm_h* vc_elm);
+EXPORT_API int vc_elm_create_object(Evas_Object* object, vc_elm_h* vc_elm);
 
 /**
 * @brief Creates vc elm handle for elm object item.
@@ -354,7 +359,7 @@ int vc_elm_create_object(Evas_Object* object, vc_elm_h* vc_elm);
 *
 * @see vc_elm_destroy()
 */
-int vc_elm_create_item(Elm_Object_Item* item, vc_elm_h* vc_elm);
+EXPORT_API int vc_elm_create_item(Elm_Object_Item* item, vc_elm_h* vc_elm);
 
 /**
 * @brief Destroys the handle.
@@ -376,7 +381,7 @@ int vc_elm_create_item(Elm_Object_Item* item, vc_elm_h* vc_elm);
 * @see vc_elm_create_object()
 * @see vc_elm_create_item()
 */
-int vc_elm_destroy(vc_elm_h vc_elm);
+EXPORT_API int vc_elm_destroy(vc_elm_h vc_elm);
 
 /**
 * @brief Sets command to the handle.
@@ -399,7 +404,7 @@ int vc_elm_destroy(vc_elm_h vc_elm);
 *
 * @see vc_elm_unset_command()
 */
-int vc_elm_set_command(vc_elm_h vc_elm, const char* command);
+EXPORT_API int vc_elm_set_command(vc_elm_h vc_elm, const char* command);
 
 /**
 * @brief Unsets command from the handle.
@@ -421,7 +426,7 @@ int vc_elm_set_command(vc_elm_h vc_elm, const char* command);
 *
 * @see vc_elm_set_command()
 */
-int vc_elm_unset_command(vc_elm_h vc_elm);
+EXPORT_API int vc_elm_unset_command(vc_elm_h vc_elm);
 
 /**
 * @brief Set command hint for the handle.
@@ -444,7 +449,7 @@ int vc_elm_unset_command(vc_elm_h vc_elm);
 *
 * @see vc_elm_unset_command_hint()
 */
-int vc_elm_set_command_hint(vc_elm_h vc_elm, const char* hint);
+EXPORT_API int vc_elm_set_command_hint(vc_elm_h vc_elm, const char* hint);
 
 /**
 * @brief Unset command hint for the handle.
@@ -466,7 +471,7 @@ int vc_elm_set_command_hint(vc_elm_h vc_elm, const char* hint);
 *
 * @see vc_elm_set_command_hint()
 */
-int vc_elm_unset_command_hint(vc_elm_h vc_elm);
+EXPORT_API int vc_elm_unset_command_hint(vc_elm_h vc_elm);
 
 /**
 * @brief Sets the direction of hint to the handle.
@@ -492,7 +497,7 @@ int vc_elm_unset_command_hint(vc_elm_h vc_elm);
 * @see vc_elm_set_command_hint()
 * @see vc_elm_get_command_hint_direction()
 */
-int vc_elm_set_command_hint_direction(vc_elm_h vc_elm, vc_elm_direction_e direction);
+EXPORT_API int vc_elm_set_command_hint_direction(vc_elm_h vc_elm, vc_elm_direction_e direction);
 
 /**
 * @brief Unsets the direction of hint from the handle.
@@ -515,7 +520,7 @@ int vc_elm_set_command_hint_direction(vc_elm_h vc_elm, vc_elm_direction_e direct
 *
 * @see vc_elm_set_command_hint_direction()
 */
-int vc_elm_get_command_hint_direction(vc_elm_h vc_elm, vc_elm_direction_e* direction);
+EXPORT_API int vc_elm_get_command_hint_direction(vc_elm_h vc_elm, vc_elm_direction_e* direction);
 
 /**
 * @brief Sets command hint's x,y position to the handle.
@@ -540,7 +545,7 @@ int vc_elm_get_command_hint_direction(vc_elm_h vc_elm, vc_elm_direction_e* direc
 * @see vc_elm_set_command_hint()
 * @see vc_elm_get_command_hint_offset()
 */
-int vc_elm_set_command_hint_offset(vc_elm_h vc_elm, int pos_x, int pos_y);
+EXPORT_API int vc_elm_set_command_hint_offset(vc_elm_h vc_elm, int pos_x, int pos_y);
 
 /**
 * @brief Gets command hint's x,y position from the handle.
@@ -564,7 +569,7 @@ int vc_elm_set_command_hint_offset(vc_elm_h vc_elm, int pos_x, int pos_y);
 *
 * @see vc_elm_set_command_hint_offset()
 */
-int vc_elm_get_command_hint_offset(vc_elm_h vc_elm, int* pos_x, int* pos_y);
+EXPORT_API int vc_elm_get_command_hint_offset(vc_elm_h vc_elm, int* pos_x, int* pos_y);
 
 
 /**
@@ -587,7 +592,7 @@ int vc_elm_get_command_hint_offset(vc_elm_h vc_elm, int* pos_x, int* pos_y);
 *
 * @see vc_elm_unset_current_language_changed_cb()
 */
-int vc_elm_set_current_language_changed_cb(vc_elm_current_language_changed_cb callback, void* user_data);
+EXPORT_API int vc_elm_set_current_language_changed_cb(vc_elm_current_language_changed_cb callback, void* user_data);
 
 /**
 * @brief Unregisters the callback function.
@@ -605,7 +610,7 @@ int vc_elm_set_current_language_changed_cb(vc_elm_current_language_changed_cb ca
 *
 * @see vc_elm_set_current_language_changed_cb()
 */
-int vc_elm_unset_current_language_changed_cb(void);
+EXPORT_API int vc_elm_unset_current_language_changed_cb(void);
 
 
 #ifdef _cplusplus

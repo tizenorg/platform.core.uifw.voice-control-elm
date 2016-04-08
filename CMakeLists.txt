@@ -22,7 +22,8 @@ INCLUDE(FindPkgConfig)
 # Build type
 SET(CMAKE_BUILD_TYPE "Release")
 SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -g -fprofile-arcs -ftest-coverage -D_GNU_SOURCE -flto")
-
+ADD_DEFINITIONS("-fvisibility=hidden")
+ADD_DEFINITIONS("-DEXPORT_API=__attribute__((visibility(\"default\")))")
 ADD_DEFINITIONS("-DVOICE_LIBDIR=\"${LIBDIR}\"")
 
 # CMake settings
