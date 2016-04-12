@@ -205,7 +205,7 @@
 		<hint>
 			<hint-show>on</hint-show>
 			<default-hint-direction>center</default-hint-direction>
-			<default-hint-image>/usr/share/voice/vc-elm/image.png</default-hint-image>
+			<default-hint-image>/voice/vc-elm/1.0/image.png</default-hint-image>
 		</hint>
 	</voice-control-elm-config>
 	<voice-control-elm-info>

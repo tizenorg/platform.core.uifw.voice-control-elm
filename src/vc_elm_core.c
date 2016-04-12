@@ -294,7 +294,9 @@ static Eina_Bool __idle_enter(void *data);
 void _vc_elm_core_init()
 {
 	int ret;
-	bindtextdomain("voice-control-elm", "/usr/share/locale/");
+	const char * tmp = tzplatform_mkpath(TZ_SYS_RO_SHARE, "locale/");
+	bindtextdomain("voice-control-elm", tmp);
+//	bindtextdomain("voice-control-elm", "/usr/share/locale/");
 
 	g_widget_info_hash = eina_hash_string_djb2_new(__widget_info_free_cb);
 	item_hint_map = eina_hash_pointer_new(__hash_entry_free_cb);
@@ -1620,6 +1622,7 @@ int _vc_elm_core_read_xml_data()
 	xmlNodePtr child = NULL;
 	xmlNodePtr tmp = NULL;
 	xmlChar *key = NULL;
+	const char * charkey;
 
 	VC_ELM_LOG_DBG("reading XML start");
 	doc = xmlParseFile(VC_ELM_CONFIG_XML);
@@ -1731,7 +1734,8 @@ int _vc_elm_core_read_xml_data()
 							VC_ELM_LOG_DBG("hint image %s", (char*)key);
 							if (g_tooltips_image_path)
 								free(g_tooltips_image_path);
-							g_tooltips_image_path = strdup((char*)key);
+							charkey = tzplatform_mkpath(TZ_SYS_RO_SHARE, (const char*)key);
+							g_tooltips_image_path = strdup(charkey);
 							xmlFree(key);
 						}
 						child = child->next;

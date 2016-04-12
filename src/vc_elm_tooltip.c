@@ -142,6 +142,7 @@ void _vc_elm_add_tooltip(Evas_Object *obj, const char *tip)
 	Evas_Object *rec;
 	Evas_Object *rec_bg;
 	const char *image_path;
+	const char * edj_path;
 
 	{
 		int x_;
@@ -201,7 +202,9 @@ void _vc_elm_add_tooltip(Evas_Object *obj, const char *tip)
 	evas_object_show(rec_bg);
 
 	tipobj = elm_layout_add(g_grid);
-	elm_layout_file_set(tipobj, "/usr/share/edje/voice-control-elm.edj", "tip_group");
+	edj_path = tzplatform_mkpath(TZ_SYS_RO_SHARE, "edje/voice-control-elm.edj");
+	elm_layout_file_set(tipobj, edj_path, "tip_group");
+//	elm_layout_file_set(tipobj, "/usr/share/edje/voice-control-elm.edj", "tip_group");
 	elm_object_part_content_set(tipobj, "content", rec);
 	elm_object_part_content_set(tipobj, "bg", rec_bg);
 	evas_object_show(tipobj);

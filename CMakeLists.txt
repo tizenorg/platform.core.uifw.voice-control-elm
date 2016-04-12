@@ -123,12 +123,12 @@ ADD_CUSTOM_TARGET(voice-control-elm.edj
 ADD_DEPENDENCIES(${LIBRARY_NAME} ${PROJECT_NAME}.edj)
 
 INSTALL(FILES	 ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.edj
-		DESTINATION share/edje)
+		DESTINATION ${TZ_SYS_RO_SHARE}/edje)
 
 INSTALL(FILES	${PROJECT_SOURCE_DIR}/data/image.png
 		${PROJECT_SOURCE_DIR}/data/image_test.png
-	DESTINATION share/voice/vc-elm)
+	DESTINATION ${TZ_SYS_RO_SHARE}/voice/vc-elm/1.0)
 
 INSTALL(FILES	${PROJECT_SOURCE_DIR}/voice-control-elm-config.xml
-	DESTINATION ${LIBDIR}/voice/vc-elm/1.0)
+	DESTINATION ${TZ_SYS_RO_SHARE}/voice/vc-elm/1.0)
 
