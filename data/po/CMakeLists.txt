@@ -2,7 +2,7 @@
 
 SET(POFILES en_US.po en.po ko_KR.po pl.po )
 
-SET(MSGFMT "/usr/bin/msgfmt")
+SET(MSGFMT "${TZ_SYS_BIN}/msgfmt")
 
 FOREACH(pofile ${POFILES})
 	SET(pofile ${CMAKE_CURRENT_SOURCE_DIR}/${pofile})
@@ -16,7 +16,7 @@ FOREACH(pofile ${POFILES})
 		DEPENDS ${absPofile}
 	)
 
-INSTALL(FILES ${moFile} DESTINATION /usr/share/locale/${lang}/LC_MESSAGES RENAME ${PROJECT_NAME}.mo)
+INSTALL(FILES ${moFile} DESTINATION ${TZ_SYS_RO_SHARE}/locale/${lang}/LC_MESSAGES RENAME ${PROJECT_NAME}.mo)
 
 
 SET(moFiles ${moFiles} ${moFile})

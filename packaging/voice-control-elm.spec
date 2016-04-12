@@ -1,6 +1,6 @@
 Name:		voice-control-elm
 Summary:	voice-control-elm library
-Version:	0.2.0
+Version:	0.2.1
 Release:	1
 Group:		Graphics & UI Framework/Voice Framework
 License:	Apache-2.0
@@ -12,15 +12,16 @@ BuildRequires:	cmake
 BuildRequires:	edje-tools
 BuildRequires:	pkgconfig(appcore-efl)
 BuildRequires:	pkgconfig(capi-base-common)
-BuildRequires:	pkgconfig(evas)
-BuildRequires:	pkgconfig(eina)
-BuildRequires:	pkgconfig(ecore)
-BuildRequires:	pkgconfig(elementary)
-BuildRequires:	pkgconfig(voice-control-widget)
+BuildRequires:  pkgconfig(capi-system-info)
 BuildRequires:	pkgconfig(dlog)
+BuildRequires:	pkgconfig(ecore)
+BuildRequires:	pkgconfig(eina)
 BuildRequires:	pkgconfig(edje)
-BuildRequires:	pkgconfig(efl-assist)
+BuildRequires:	pkgconfig(elementary)
+BuildRequires:	pkgconfig(evas)
+BuildRequires:	pkgconfig(libtzplatform-config)
 BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(voice-control-widget)
 BuildRequires:	gettext-tools
 
 %description
@@ -46,16 +47,20 @@ mkdir objdir
 %{?SRPOL_DEBUG:
 (cd objdir && cmake .. -DVERSION=%{version} \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-    -DLIBDIR=%{_libdir} \
-    -DINCLUDEDIR=%{_includedir} \
+	-DLIBDIR=%{_libdir} \
+	-DINCLUDEDIR=%{_includedir} \
+	-DTZ_SYS_RO_SHARE=%TZ_SYS_RO_SHARE \
+	-DTZ_SYS_BIN=%TZ_SYS_BIN \
 	-DCMAKE_BUILD_TYPE=Debug \
 	-DSRPOL_DEBUG="1")
 }
 %{!?SRPOL_DEBUG:
 (cd objdir && cmake .. -DVERSION=%{version} \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-    -DLIBDIR=%{_libdir} \
-    -DINCLUDEDIR=%{_includedir} \
+	-DLIBDIR=%{_libdir} \
+	-DINCLUDEDIR=%{_includedir} \
+	-DTZ_SYS_RO_SHARE=%TZ_SYS_RO_SHARE \
+	-DTZ_SYS_BIN=%TZ_SYS_BIN \
 	-DCMAKE_BUILD_TYPE=Debug \
 	-DSRPOL_DEBUG="0")
 }
@@ -63,8 +68,8 @@ mkdir objdir
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/license
-install LICENSE %{buildroot}/usr/share/license/%{name}
+mkdir -p %{buildroot}%{TZ_SYS_RO_SHARE}/license
+install LICENSE %{buildroot}%{TZ_SYS_RO_SHARE}/license/%{name}
 
 (cd objdir &&
 %make_install)
@@ -74,8 +79,7 @@ rm -rf %{buildroot}
 
 %post
 
-mkdir -p /usr/share/voice
-chsmack -a '_' /usr/share/voice
+mkdir -p %{TZ_SYS_RO_SHARE}/voice
 
 %files
 %manifest %{name}.manifest
@@ -84,8 +88,8 @@ chsmack -a '_' /usr/share/voice
 %{_libdir}/*.so
 %{_libdir}/*.so.*
 %{_datadir}/*
-/usr/share/locale/*
-%{_libdir}/voice/vc-elm/1.0/voice-control-elm-config.xml
+%{TZ_SYS_RO_SHARE}/locale/*
+%{TZ_SYS_RO_SHARE}/voice/vc-elm/1.0/voice-control-elm-config.xml
 
 %files devel
 %manifest %{name}-devel.manifest
