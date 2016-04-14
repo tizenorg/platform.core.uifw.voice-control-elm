@@ -95,32 +95,32 @@ static int __evas_object_position_comparator_func(const void *a_, const void *b_
 	int ay;
 	int aw;
 	int ah;
-	int tax;
-	int tay;
+	intptr_t tax;
+	intptr_t tay;
 	int bx;
 	int by;
 	int bw;
 	int bh;
-	int tbx;
-	int tby;
+	intptr_t tbx;
+	intptr_t tby;
 	int dx;
 	int dy;
 	const Evas_Object *a = (const Evas_Object *)a_;
 	const Evas_Object *b = (const Evas_Object *)b_;
 	evas_object_geometry_get(a, &ax, &ay, &aw, &ah);
-	tax = (int)evas_object_data_get(a, __VC_ELM_SAVED_X);
-	tay = (int)evas_object_data_get(a, __VC_ELM_SAVED_Y);
-	tbx = (int)evas_object_data_get(b, __VC_ELM_SAVED_X);
-	tby = (int)evas_object_data_get(b, __VC_ELM_SAVED_Y);
+	tax = (intptr_t)evas_object_data_get(a, __VC_ELM_SAVED_X);
+	tay = (intptr_t)evas_object_data_get(a, __VC_ELM_SAVED_Y);
+	tbx = (intptr_t)evas_object_data_get(b, __VC_ELM_SAVED_X);
+	tby = (intptr_t)evas_object_data_get(b, __VC_ELM_SAVED_Y);
 	if (tax > 0 && tay > 0) {
-		ax = tax;
-		ay = tay;
+		ax = (int)tax;
+		ay = (int)tay;
 	}
 	evas_object_geometry_get(b, &bx, &by, &bw, &bh);
 
 	if (tbx > 0 && tby > 0) {
-		bx = tbx;
-		by = tby;
+		bx = (int)tbx;
+		by = (int)tby;
 	}
 	dx = ax - bx;
 	dy = ay - by;
@@ -149,31 +149,38 @@ void _vc_elm_add_tooltip(Evas_Object *obj, const char *tip)
 		int y_;
 		int w_;
 		int h_;
+		intptr_t px_;
+		intptr_t py_;
+
 		evas_object_geometry_get(obj, &x_, &y_, &w_, &h_);
 		x = x_ + w_ / 2;
 		y = y_ + h_ / 2;
 
-		x_ = (int)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_FIXED_X));
-		y_ = (int)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_FIXED_Y));
+		px_ = (intptr_t)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_FIXED_X));
+		py_ = (intptr_t)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_FIXED_Y));
 
 		if (x_ > 0 && y_ > 0) {
-			x = x_;
-			y = y_;
+			x = (int)px_;
+			y = (int)py_;
 		}
 
-		x_ = (int)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_ONCE_FIXED_X));
-		if (x_ > 0)
+		px_ = (intptr_t)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_ONCE_FIXED_X));
+		if (px_ > 0)
 			evas_object_data_del(obj, _vc_elm_get_data_key(VC_ELM_ONCE_FIXED_X));
-		y_ = (int)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_ONCE_FIXED_Y));
-		if (y_ > 0)
+		py_ = (intptr_t)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_ONCE_FIXED_Y));
+		if (py_ > 0)
 			evas_object_data_del(obj, _vc_elm_get_data_key(VC_ELM_ONCE_FIXED_Y));
 
-		if (x_ > 0 && y_ > 0) {
-			x = x_;
-			y = y_;
+		if (px_ > 0 && py_ > 0) {
+			x = (int)px_;
+			y = (int)py_;
 		}
-		evas_object_data_set(obj, __VC_ELM_SAVED_X, (void *)x);
-		evas_object_data_set(obj, __VC_ELM_SAVED_Y, (void *)y);
+
+		px_ = (intptr_t)x;
+		py_ = (intptr_t)y;
+		
+		evas_object_data_set(obj, __VC_ELM_SAVED_X, (void *)px_);
+		evas_object_data_set(obj, __VC_ELM_SAVED_Y, (void *)py_);
 	}
 
 	if (!g_grid)
@@ -300,10 +307,12 @@ void _vc_elm_relayout_and_show_tooltips()
 		}
 
 		if (evas_object_data_get(obj, VC_ELM_DIRECTION) != NULL) {
-			direction = (int)evas_object_data_get(obj, VC_ELM_DIRECTION);
+			intptr_t pdirection = (intptr_t)evas_object_data_get(obj, VC_ELM_DIRECTION);
+			direction = (int)pdirection;
 			direction--;
 		} else if (evas_object_data_get(obj, VC_ELM_SUB_ITEM_DIRECTION) != NULL) {
-			direction = (int)evas_object_data_get(obj, VC_ELM_SUB_ITEM_DIRECTION);
+			intptr_t pdirection = (intptr_t)evas_object_data_get(obj, VC_ELM_SUB_ITEM_DIRECTION);
+			direction = (int)pdirection;
 			direction--;
 		} else {
 			direction = _vc_elm_core_get_tooltip_default_direction();
@@ -346,8 +355,10 @@ void _vc_elm_relayout_and_show_tooltips()
 		}
 
 		if (evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X)) != NULL && evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y)) != NULL) {
-			int position_x = (int)(evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X)));
-			int position_y = (int)(evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y)));
+			intptr_t pposition_x = (intptr_t)(evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X)));
+			intptr_t pposition_y = (intptr_t)(evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y)));
+			int position_x = (int)pposition_x;
+			int position_y = (int)pposition_y;
 
 			if (position_x > 0)
 				--position_x;
@@ -429,10 +440,12 @@ int _vc_elm_relayout_changed()
 		}
 
 		if (evas_object_data_get(obj, VC_ELM_DIRECTION) != NULL) {
-			direction = (int)evas_object_data_get(obj, VC_ELM_DIRECTION);
+			intptr_t pdirection = (intptr_t)evas_object_data_get(obj, VC_ELM_DIRECTION);
+			direction = (int)pdirection;
 			direction--;
 		} else if (evas_object_data_get(obj, VC_ELM_SUB_ITEM_DIRECTION) != NULL) {
-			direction = (int)evas_object_data_get(obj, VC_ELM_SUB_ITEM_DIRECTION);
+			intptr_t pdirection = (intptr_t)evas_object_data_get(obj, VC_ELM_SUB_ITEM_DIRECTION);
+			direction = (int)pdirection;
 			direction--;
 		} else {
 			direction = _vc_elm_core_get_tooltip_default_direction();
@@ -475,8 +488,10 @@ int _vc_elm_relayout_changed()
 		}
 
 		if (evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X)) != NULL && evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y)) != NULL) {
-			int position_x = (int)(evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X)));
-			int position_y = (int)(evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y)));
+			intptr_t pposition_x = (intptr_t)(evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X)));
+			intptr_t pposition_y = (intptr_t)(evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y)));
+			int position_x = (int)pposition_x;
+			int position_y = (int)pposition_y;
 
 			t.x = position_x + o.x;
 			t.y = position_y + o.y;
