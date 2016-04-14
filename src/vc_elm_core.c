@@ -391,9 +391,13 @@ static Eina_List *__get_objects_of_visible_items(Evas_Object *parent, Elm_Object
 		item_custom_date = eina_hash_find(item_custom_map, &item);
 
 		if (item_custom_date != NULL) {
-			evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_HINT_IMAGE_PATH), (const void *)item_custom_date->image_path);
-			evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X), (void *)item_custom_date->pos_x);
-			evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y), (void *)item_custom_date->pos_y);
+			intptr_t pimage_path = (intptr_t)item_custom_date->image_path;
+			intptr_t ppos_x = (intptr_t)item_custom_date->pos_x;
+			intptr_t ppos_y = (intptr_t)item_custom_date->pos_y;
+
+			evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_HINT_IMAGE_PATH), (const void *)pimage_path);
+			evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X), (void *)ppos_x);
+			evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y), (void *)ppos_y);
 		}
 
 		evas_object_geometry_get(obj, &x_1, &y_1, &w_1, &h_1);
@@ -441,9 +445,13 @@ static Eina_Bool __item_item_map_foreach(const Eina_Hash *hash, const void *key,
 			item_custom_date = eina_hash_find(item_custom_map, &data);
 
 			if (item_custom_date != NULL) {
-				evas_object_data_set(fdata, _vc_elm_get_data_key(VC_ELM_HINT_IMAGE_PATH), (const void *)item_custom_date->image_path);
-				evas_object_data_set(fdata, _vc_elm_get_data_key(VC_ELM_POSITION_X), (void *)item_custom_date->pos_x);
-				evas_object_data_set(fdata, _vc_elm_get_data_key(VC_ELM_POSITION_Y), (void *)item_custom_date->pos_y);
+				intptr_t pimage_path = (intptr_t)item_custom_date->image_path;
+				intptr_t ppos_x = (intptr_t)item_custom_date->pos_x;
+				intptr_t ppos_y = (intptr_t)item_custom_date->pos_y;
+				
+				evas_object_data_set(fdata, _vc_elm_get_data_key(VC_ELM_HINT_IMAGE_PATH), (const void *)pimage_path);
+				evas_object_data_set(fdata, _vc_elm_get_data_key(VC_ELM_POSITION_X), (void *)ppos_x);
+				evas_object_data_set(fdata, _vc_elm_get_data_key(VC_ELM_POSITION_Y), (void *)ppos_y);
 			}
 		} else {
 			evas_object_data_del(fdata, VC_ELM_CMD_DATA_KEY);
@@ -1277,36 +1285,44 @@ Eina_Bool _vc_elm_core_set_object_custom_hint(Evas_Object *obj, const char *imag
 		VC_ELM_LOG_ERR("Invalid Evas_Object parameter detected!");
 		return EINA_FALSE;
 	}
-	evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_HINT_IMAGE_PATH), (const void *)image_path);
 
-	if (pos_x >= 0)
-		evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X), (void *)(pos_x + 1));
-	else
-		evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X), (void *)(pos_x - 1));
+	intptr_t pimage_path = (intptr_t)image_path;
+	intptr_t ppos_x = (intptr_t)pos_x;
+	intptr_t ppos_y = (intptr_t)pos_y;
 
-	if (pos_y >= 0)
-		evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y), (void *)(pos_y + 1));
+	evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_HINT_IMAGE_PATH), (const void *)pimage_path);
+
+	if (ppos_x >= 0)
+		evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X), (void *)(ppos_x + 1));
 	else
-		evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y), (void *)(pos_y - 1));
+		evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X), (void *)(ppos_x - 1));
+
+	if (ppos_y >= 0)
+		evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y), (void *)(ppos_y + 1));
+	else
+		evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y), (void *)(ppos_y - 1));
 	return EINA_TRUE;
 }
 
 Eina_Bool _vc_elm_core_get_object_custom_hint(Evas_Object *obj, const char **image_path, int *pos_x, int *pos_y)
 {
 	int acc;
+	intptr_t pacc;
 	if (NULL == obj) {
 		VC_ELM_LOG_ERR("Invalid Evas_Object parameter detected!");
 		return EINA_FALSE;
 	}
 	*image_path = (const char *)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_HINT_IMAGE_PATH));
 
-	acc = (int)(evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X)));
+	pacc = (intptr_t)(evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_X)));
+	acc = (int)pacc;
 	if (acc > 0)
 		*pos_x = acc - 1;
 	else
 		*pos_x = acc + 1;
 
-	acc = (int)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y));
+	pacc = (intptr_t)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_POSITION_Y));
+	acc = (int)pacc;
 	if (acc > 0)
 		*pos_y = acc - 1;
 	else
@@ -1382,15 +1398,19 @@ const char *_vc_elm_core_get_object_hint(const Evas_Object *obj)
 
 Eina_Bool _vc_elm_core_set_object_hint_fixed_possition(Evas_Object *obj, int x, int y)
 {
-	evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_FIXED_X), (void *)x);
-	evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_FIXED_Y), (void *)y);
+	intptr_t px = (intptr_t)x;
+	intptr_t py = (intptr_t)y;
+	evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_FIXED_X), (void *)px);
+	evas_object_data_set(obj, _vc_elm_get_data_key(VC_ELM_FIXED_Y), (void *)py);
 	return EINA_TRUE;
 }
 
 Eina_Bool _vc_elm_core_get_object_hint_fixed_possition(Evas_Object *obj, int *x, int *y)
 {
-	*x = (int)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_FIXED_X));
-	*y = (int)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_FIXED_Y));
+	intptr_t px = (intptr_t)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_FIXED_X));
+	intptr_t py = (intptr_t)evas_object_data_get(obj, _vc_elm_get_data_key(VC_ELM_FIXED_Y));
+	*x = (int)px;
+	*y = (int)py;
 	return EINA_TRUE;
 }
 
@@ -1403,13 +1423,15 @@ Eina_Bool _vc_elm_core_del_object_hint_fixed_possition(Evas_Object *obj)
 
 Eina_Bool _vc_elm_core_set_object_hint_direction(Evas_Object *obj, vc_elm_direction_e direction)
 {
-	evas_object_data_set(obj, VC_ELM_DIRECTION, (void *)(direction + 1));
+	intptr_t pdirection = (intptr_t)(direction + 1);
+	evas_object_data_set(obj, VC_ELM_DIRECTION, (void *)pdirection);
 	return EINA_TRUE;
 }
 
 Eina_Bool _vc_elm_core_get_object_hint_direction(Evas_Object *obj, vc_elm_direction_e *direction)
 {
-	*direction = ((vc_elm_direction_e)evas_object_data_get(obj, VC_ELM_DIRECTION)) - 1;
+	intptr_t pdirection = (intptr_t)evas_object_data_get(obj, VC_ELM_DIRECTION);
+	*direction = (vc_elm_direction_e)pdirection - 1;
 	return EINA_TRUE;
 }
 
@@ -1421,13 +1443,15 @@ Eina_Bool _vc_elm_core_del_object_hint_direction(Evas_Object *obj)
 
 Eina_Bool _vc_elm_core_set_sub_item_hint_direction(Evas_Object *obj, vc_elm_direction_e direction)
 {
-	evas_object_data_set(obj, VC_ELM_SUB_ITEM_DIRECTION, (void *)(direction + 1));
+	intptr_t pdirection = (intptr_t)direction;
+	evas_object_data_set(obj, VC_ELM_SUB_ITEM_DIRECTION, (void *)(pdirection + 1));
 	return EINA_TRUE;
 }
 
 Eina_Bool _vc_elm_core_get_sub_item_hint_direction(Evas_Object *obj, vc_elm_direction_e *direction)
 {
-	*direction = ((vc_elm_direction_e)evas_object_data_get(obj, VC_ELM_SUB_ITEM_DIRECTION)) - 1;
+	intptr_t pdirection = ((intptr_t)evas_object_data_get(obj, VC_ELM_SUB_ITEM_DIRECTION)) - 1;
+	*direction = (vc_elm_direction_e)pdirection;
 	return EINA_TRUE;
 }
 
@@ -1576,7 +1600,9 @@ static Eina_Bool __idle_enter(void *data)
 	/* OK, window set properly now */
 
 	_vc_elm_set_tooltips_window(g_default_window);
-	VC_ELM_LOG_DBG("elm_win_xwindow_get = %p", (void*)elm_win_xwindow_get(g_default_window));
+	Ecore_X_Window default_window = elm_win_xwindow_get(g_default_window);
+	intptr_t pdefault_window = (intptr_t)default_window;
+	VC_ELM_LOG_DBG("elm_win_xwindow_get = %p", (void*)pdefault_window);
 
 	if (elm_win_wm_rotation_supported_get(g_default_window)) {
 		int rots[4] = {0, 90, 180, 270};

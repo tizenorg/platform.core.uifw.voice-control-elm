@@ -40,8 +40,8 @@ void _R_set_from_efl(R *p, Evas_Object *obj)
 	ptx = (intptr_t)evas_object_data_get(obj, VC_ELM_FIXED_X);
 	pty = (intptr_t)evas_object_data_get(obj, VC_ELM_FIXED_Y);
 
-	tx = *((int *)(&ptx));
-	ty = *((int *)(&pty));
+	tx = (int)ptx;
+	ty = (int)pty;
 	if (tx != 0 && ty != 0) {
 		x = tx;
 		y = ty;
