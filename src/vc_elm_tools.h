@@ -28,10 +28,10 @@ extern "C" {
 
 #define LOG_TAG "VC_ELM"
 
-#define VC_ELM_LOG_DBG(fmt, ...) do{ EINA_LOG_ERR("\033[0;32m" fmt "\033[m", ## __VA_ARGS__); SLOGI("\033[0;32m" fmt "\033[m", ## __VA_ARGS__); }while(0)
-#define VC_ELM_LOG_INFO(fmt, ...) do{ EINA_LOG_ERR("\033[0;35m" fmt "\033[m", ## __VA_ARGS__); SLOGI("\033[0;32m" fmt "\033[m", ## __VA_ARGS__); }while(0)
-#define VC_ELM_LOG_ERR(fmt, ...) do{ EINA_LOG_ERR("\033[0;31m" fmt "\033[m", ## __VA_ARGS__); SLOGE("\033[0;32m" fmt "\033[m", ## __VA_ARGS__); }while(0)
-#define VC_ELM_LOG_WARN(fmt, ...) do{ EINA_LOG_ERR("\033[0;36m" fmt "\033[m", ## __VA_ARGS__); SLOGW("\033[0;32m" fmt "\033[m", ## __VA_ARGS__); }while(0)
+#define VC_ELM_LOG_DBG(fmt, ...) do { EINA_LOG_ERR("\033[0;32m" fmt "\033[m", ## __VA_ARGS__); SLOGI("\033[0;32m" fmt "\033[m", ## __VA_ARGS__); } while (0)
+#define VC_ELM_LOG_INFO(fmt, ...) do { EINA_LOG_ERR("\033[0;35m" fmt "\033[m", ## __VA_ARGS__); SLOGI("\033[0;32m" fmt "\033[m", ## __VA_ARGS__); } while (0)
+#define VC_ELM_LOG_ERR(fmt, ...) do { EINA_LOG_ERR("\033[0;31m" fmt "\033[m", ## __VA_ARGS__); SLOGE("\033[0;32m" fmt "\033[m", ## __VA_ARGS__); } while (0)
+#define VC_ELM_LOG_WARN(fmt, ...) do { EINA_LOG_ERR("\033[0;36m" fmt "\033[m", ## __VA_ARGS__); SLOGW("\033[0;32m" fmt "\033[m", ## __VA_ARGS__); } while (0)
 
 
 #ifdef __cplusplus

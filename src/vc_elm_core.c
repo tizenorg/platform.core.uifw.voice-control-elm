@@ -1490,7 +1490,7 @@ static Eina_Bool on_idle(void *data)
 
 	if (g_tooltips_displayed) {
 
-		if (g_view_changed){
+		if (g_view_changed) {
 			_vc_elm_widget_wrapper_clear_commands();
 			/*_show_tooltips();*/
 			ret = _vc_elm_widget_wrapper_cancel();
@@ -1512,7 +1512,7 @@ static void __idle_changed(Ecore_Evas *ee)
 {
 	(void)ee;
 	VC_ELM_LOG_DBG("View changed");
-	if (g_tooltips_displayed && g_view_changed){
+	if (g_tooltips_displayed && g_view_changed) {
 		_hide_tooltips();
 	}
 	if (g_animation_view_idler) {

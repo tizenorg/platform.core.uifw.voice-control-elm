@@ -504,7 +504,7 @@ int _vc_elm_relayout_changed()
 
 		/*elm_grid_pack_set(tip, nx, ny, nw, nh);*/
 		VC_ELM_LOG_DBG("View changes detected: %d %d %d %d", abs(x - nx), abs(y - ny), abs(h - nh), abs(w - nw));
-		if((abs(x - nx) > 5) || (abs(y - ny) > 5) || (abs(h - nh) > 5) || (abs(w - nw) > 5)) {
+		if ((abs(x - nx) > 5) || (abs(y - ny) > 5) || (abs(h - nh) > 5) || (abs(w - nw) > 5)) {
 			free(recs);
 			return 1;
 		}
