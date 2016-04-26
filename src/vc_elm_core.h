@@ -31,8 +31,8 @@ extern "C" {
  * @brief This file contains core functions, that define the behaviour of library
  */
 
-//#define VC_ELM_CONFIG_XML 		VOICE_LIBDIR"/voice/vc-elm/1.0/voice-control-elm-config.xml"
-#define VC_ELM_CONFIG_XML 			tzplatform_mkpath(TZ_SYS_RO_SHARE, "voice/vc-elm/1.0/voice-control-elm-config.xml")
+//#define VC_ELM_CONFIG_XML		VOICE_LIBDIR"/voice/vc-elm/1.0/voice-control-elm-config.xml"
+#define VC_ELM_CONFIG_XML		tzplatform_mkpath(TZ_SYS_RO_SHARE, "voice/vc-elm/1.0/voice-control-elm-config.xml")
 #define VC_ELM_TAG_BASE_NAME		"voice-control-elm-config"
 
 #define VC_ELM_TAG_ACTION_LIST		"action-list"
