@@ -921,7 +921,7 @@ static void __vc_add_commands()
 		registered = 0;
 		if (obj_name)
 			VC_ELM_LOG_DBG("Adding command for %s", obj_name);
-		if ((!obj_name && evas_object_data_get(obj, "special_item")) || (!strcmp(obj_name, "Elm_Layout") && evas_object_data_get(obj, "special_item")))
+		if ((!obj_name && evas_object_data_get(obj, "special_item")) || (obj_name && (!strcmp(obj_name, "Elm_Layout") && evas_object_data_get(obj, "special_item"))))
 			obj_name = eina_stringshare_add("evc-item");
 		if (!obj_name) {
 			VC_ELM_LOG_DBG("Widget '%p' has no type specified", obj_name);
