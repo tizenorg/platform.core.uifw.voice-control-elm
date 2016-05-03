@@ -39,7 +39,7 @@ extern "C" {
 
 /**
 * @brief This enum describes status of voice control elementary after API call
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 */
 typedef enum {
 	VC_ELM_ERROR_NONE		= TIZEN_ERROR_NONE,			/**< Successful */
@@ -56,7 +56,7 @@ typedef enum {
 
 /**
 * @brief This enum describes directions of the widget hints.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 *
 * @see vc_elm_set_command_hint_direction()
 *
@@ -76,13 +76,13 @@ typedef enum {
 
 /**
 * @brief A handle to the voice control elementary for object or item object
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 */
 typedef struct vc_elm_s* vc_elm_h;
 
 /**
 * @brief Called to retrieve supported language.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 *
 * @param[in] language A language is specified as an ISO 3166 alpha-2 two letter country-code \n
 *		followed by ISO 639-1 for the two-letter language code \n
@@ -98,7 +98,7 @@ typedef bool (*vc_elm_supported_language_cb)(const char* language, void* user_da
 
 /**
 * @brief Called when default language is changed.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 *
 * @param[in] previous Previous language
 * @param[in] current Current language
@@ -112,7 +112,7 @@ typedef void (*vc_elm_current_language_changed_cb)(const char* previous, const c
 
 /**
 * @brief Called to retrieve supported widget.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 *
 * @param[in] widget Widget name
 * @param[in] user_data The user data passed from the callback registration function
@@ -126,7 +126,7 @@ typedef bool (*vc_elm_widget_cb)(const char* widget, void* user_data);
 
 /**
 * @brief Called to retrieve supported action.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 *
 * @param[in] action Action name
 * @param[in] user_data The user data passed from the callback registration function
@@ -141,7 +141,7 @@ typedef bool (*vc_elm_action_cb)(const char* action, void* user_data);
 
 /**
 * @brief Initializes voice control elementary module.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -161,7 +161,7 @@ int vc_elm_initialize(void);
 
 /**
 * @brief Deinitializes voice control elementary module.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -181,7 +181,7 @@ int vc_elm_deinitialize(void);
 
 /**
 * @brief Retrieves all supported languages using callback function.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -206,7 +206,7 @@ int vc_elm_foreach_supported_languages(vc_elm_supported_language_cb callback, vo
 
 /**
 * @brief Gets current language.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -231,7 +231,7 @@ int vc_elm_get_current_language(char** language);
 
 /**
 * @brief Retrieves all supported widget using callback function.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -256,7 +256,7 @@ int vc_elm_foreach_supported_widgets(vc_elm_widget_cb callback, void* user_data)
 
 /**
 * @brief Retrieves all supported actions of widget using callback function.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -282,7 +282,7 @@ int vc_elm_foreach_supported_actions(const char* widget, vc_elm_action_cb callba
 
 /**
 * @brief Gets action command of action.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -307,7 +307,7 @@ int vc_elm_get_action_command(const char* action, char** command);
 
 /**
 * @brief Creates vc elm handle for evas object.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -333,7 +333,7 @@ int vc_elm_create_object(Evas_Object* object, vc_elm_h* vc_elm);
 
 /**
 * @brief Creates vc elm handle for elm object item.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -358,7 +358,7 @@ int vc_elm_create_item(Elm_Object_Item* item, vc_elm_h* vc_elm);
 
 /**
 * @brief Destroys the handle.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -380,7 +380,7 @@ int vc_elm_destroy(vc_elm_h vc_elm);
 
 /**
 * @brief Sets command to the handle.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -403,7 +403,7 @@ int vc_elm_set_command(vc_elm_h vc_elm, const char* command);
 
 /**
 * @brief Unsets command from the handle.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -425,7 +425,7 @@ int vc_elm_unset_command(vc_elm_h vc_elm);
 
 /**
 * @brief Set command hint for the handle.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -448,7 +448,7 @@ int vc_elm_set_command_hint(vc_elm_h vc_elm, const char* hint);
 
 /**
 * @brief Unset command hint for the handle.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -470,7 +470,7 @@ int vc_elm_unset_command_hint(vc_elm_h vc_elm);
 
 /**
 * @brief Sets the direction of hint to the handle.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -496,7 +496,7 @@ int vc_elm_set_command_hint_direction(vc_elm_h vc_elm, vc_elm_direction_e direct
 
 /**
 * @brief Unsets the direction of hint from the handle.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -519,7 +519,7 @@ int vc_elm_get_command_hint_direction(vc_elm_h vc_elm, vc_elm_direction_e* direc
 
 /**
 * @brief Sets command hint's x,y position to the handle.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -544,7 +544,7 @@ int vc_elm_set_command_hint_offset(vc_elm_h vc_elm, int pos_x, int pos_y);
 
 /**
 * @brief Gets command hint's x,y position from the handle.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -569,7 +569,7 @@ int vc_elm_get_command_hint_offset(vc_elm_h vc_elm, int* pos_x, int* pos_y);
 
 /**
 * @brief Registers a callback function to be called when current language is changed.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
@@ -591,7 +591,7 @@ int vc_elm_set_current_language_changed_cb(vc_elm_current_language_changed_cb ca
 
 /**
 * @brief Unregisters the callback function.
-* @since_tizen 2.4
+* @since_tizen @if MOBILE 2.4 @elseif WEARABLE 3.0 @endif
 * @privlevel public
 * @privilege %http://tizen.org/privilege/recorder
 *
