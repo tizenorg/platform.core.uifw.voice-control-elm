@@ -770,7 +770,7 @@ void _show_tooltips()
 		obj_name = _get_ui_object_name(obj);
 		parent_obj_name = _get_ui_object_name(parent);
 
-		if ((!obj_name && evas_object_data_get(obj, "special_item")) || (!strcmp(obj_name, "Elm_Layout") && evas_object_data_get(obj, "special_item")))
+		if ((!obj_name && evas_object_data_get(obj, "special_item")) || (obj_name && (!strcmp(obj_name, "Elm_Layout") && evas_object_data_get(obj, "special_item"))))
 			obj_name = eina_stringshare_add("evc-item");
 
 		if (!obj_name) {
