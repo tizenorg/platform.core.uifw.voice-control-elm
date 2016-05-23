@@ -12,7 +12,9 @@ BuildRequires:	cmake
 BuildRequires:	edje-tools
 BuildRequires:	pkgconfig(appcore-efl)
 BuildRequires:	pkgconfig(capi-base-common)
-BuildRequires:  pkgconfig(capi-system-info)
+BuildRequires:	pkgconfig(capi-system-info)
+BuildRequires:	pkgconfig(cynara-client)
+BuildRequires:	pkgconfig(cynara-session)
 BuildRequires:	pkgconfig(dlog)
 BuildRequires:	pkgconfig(ecore)
 BuildRequires:	pkgconfig(eina)
