@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#include <cynara-client.h>
+#include <cynara-error.h>
+#include <cynara-session.h>
 #include <system_info.h>
 #include "vc_elm_main.h"
 #include <voice_control_elm.h>
@@ -56,6 +59,9 @@ typedef struct __vc_elm_widget_cb_data_s vc_elm_widget_cb_data_s;
 
 static int g_feature_enabled = -1;
 
+static int g_privilege_allowed = -1;
+static cynara *p_cynara = NULL;
+
 static int __vc_elm_get_feature_enabled()
 {
 	if (0 == g_feature_enabled) {
@@ -85,10 +91,84 @@ static int __vc_elm_get_feature_enabled()
 	return 0;
 }
 
+static int __check_privilege_initialize()
+{
+	int ret = cynara_initialize(&p_cynara, NULL);
+	if (CYNARA_API_SUCCESS != ret)
+		VC_ELM_LOG_ERR("[ERROR] fail to initialize");
+	
+	return ret == CYNARA_API_SUCCESS;
+}
+
+static int __check_privilege(const char* uid, const char * privilege)
+{
+	FILE *fp = NULL;
+	char smack_label[1024] = "/proc/self/attr/current";
+
+	if (!p_cynara) {
+	    return false;
+	}
+
+	fp = fopen(smack_label, "r");
+	if (fp != NULL) {
+	    if (fread(smack_label, 1, sizeof(smack_label), fp) <= 0)
+		VC_ELM_LOG_ERR("[ERROR] fail to fread");
+
+	    fclose(fp);
+	}
+
+	pid_t pid = getpid();
+	char *session = cynara_session_from_pid(pid);
+	int ret = cynara_check(p_cynara, smack_label, session, uid, privilege);
+	VC_ELM_LOG_DBG("[Client]cynara_check returned %d(%s)", ret, (CYNARA_API_ACCESS_ALLOWED == ret) ? "Allowed" : "Denied");
+	if (session)
+	    free(session);
+
+	if (ret != CYNARA_API_ACCESS_ALLOWED)
+	    return false;
+	return true;
+}
+
+static void __check_privilege_deinitialize()
+{
+	if (p_cynara)
+		cynara_finish(p_cynara);
+	p_cynara = NULL;
+}
+
+static int __vc_elm_check_privilege()
+{
+	char uid[16];
+
+	if (0 == g_privilege_allowed) {
+		VC_ELM_LOG_ERR("[ERROR] Permission is denied");
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	} else if (-1 == g_privilege_allowed) {
+		if (false == __check_privilege_initialize()){
+			VC_ELM_LOG_ERR("[ERROR] privilege initialize is failed");
+			return VC_ELM_ERROR_PERMISSION_DENIED;
+		}
+		snprintf(uid, 16, "%d", getuid());
+		if (false == __check_privilege(uid, VC_ELM_PRIVILEGE)) {
+			VC_ELM_LOG_ERR("[ERROR] Permission is denied");
+			g_privilege_allowed = 0;
+			__check_privilege_deinitialize();
+			return VC_ELM_ERROR_PERMISSION_DENIED;
+		}
+		__check_privilege_deinitialize();
+	}
+
+	g_privilege_allowed = 1;
+	return VC_ELM_ERROR_NONE;	
+}
+
 int vc_elm_initialize()
 {
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
+	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
 	}
 
 	if (true == is_vc_elm_initialized) {
@@ -115,7 +195,10 @@ int vc_elm_deinitialize()
 	vc_elm_h handler = NULL;
 
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
+	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
 	}
 
 	if (false == is_vc_elm_initialized) {
@@ -146,7 +229,10 @@ int vc_elm_foreach_supported_languages(vc_elm_supported_language_cb callback, vo
 {
 	int ret;
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
+	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
 	}
 
 	ret = vc_widget_foreach_supported_languages(callback, user_data);
@@ -171,7 +257,10 @@ int vc_elm_get_current_language(char **language)
 {
 	int ret;
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
+	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
 	}
 
 	ret = vc_widget_get_current_language(language);
@@ -213,8 +302,12 @@ int vc_elm_foreach_supported_widgets(vc_elm_widget_cb callback, void *user_data)
 	const Eina_Hash  *hash = NULL;
 
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
 	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	}
+
 	if (NULL == callback) {
 		VC_ELM_LOG_ERR("Invalid parameters detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -242,8 +335,12 @@ int vc_elm_foreach_supported_actions(const char *widget, vc_elm_action_cb callba
 	const char *action_tag = NULL;
 
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
 	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	}
+
 	if ((NULL == widget) || (NULL == callback)) {
 		VC_ELM_LOG_ERR("Invalid parameters detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -277,8 +374,12 @@ int vc_elm_get_action_command(const char *action, char **command)
 	size_t len = 0;
 
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
 	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	}
+
 	if ((NULL == action) || (NULL == command)) {
 		VC_ELM_LOG_ERR("Invalid parameters detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -311,7 +412,10 @@ int vc_elm_create_object(Evas_Object *object, vc_elm_h *vc_elm)
 {
 	vc_elm_s *handler = NULL;
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
+	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
 	}
 
 	if (NULL == vc_elm) {
@@ -349,7 +453,10 @@ int vc_elm_create_item(Elm_Object_Item *item, vc_elm_h *vc_elm)
 {
 	vc_elm_s *handler = NULL;
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
+	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
 	}
 
 	if (NULL == vc_elm) {
@@ -385,8 +492,12 @@ int vc_elm_destroy(vc_elm_h vc_elm)
 	Eina_List *list = NULL;
 	int type = 0;
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
 	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	}
+
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -415,8 +526,12 @@ int vc_elm_set_command(vc_elm_h vc_elm, const char *command)
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	int type = 0;
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
 	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	}
+
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -438,8 +553,12 @@ int vc_elm_unset_command(vc_elm_h vc_elm)
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	int type = 0;
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
 	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	}
+
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -461,8 +580,12 @@ int vc_elm_set_command_hint(vc_elm_h vc_elm, const char* hint)
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	int type = 0;
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
 	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	}
+
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -484,8 +607,12 @@ int vc_elm_unset_command_hint(vc_elm_h vc_elm)
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	int type = 0;
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
 	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	}
+
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -507,8 +634,12 @@ int vc_elm_set_command_hint_direction(vc_elm_h vc_elm, vc_elm_direction_e direct
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	int type = 0;
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
 	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	}
+
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -531,8 +662,12 @@ int vc_elm_get_command_hint_direction(vc_elm_h vc_elm, vc_elm_direction_e *direc
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	int type = 0;
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
 	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	}
+
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -554,8 +689,12 @@ int vc_elm_set_command_hint_offset(vc_elm_h vc_elm, int pos_x, int pos_y)
 	vc_elm_s *handler = (vc_elm_s *)vc_elm;
 	int type = 0;
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
 	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	}
+
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -578,8 +717,12 @@ int vc_elm_get_command_hint_offset(vc_elm_h vc_elm, int *pos_x, int *pos_y)
 	const char *path = NULL;
 	int type = 0;
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
 	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	}
+
 	if (NULL == vc_elm) {
 		VC_ELM_LOG_ERR("Invalid vc_elm parameter detected!");
 		return VC_ELM_ERROR_INVALID_PARAMETER;
@@ -604,8 +747,12 @@ int vc_elm_set_current_language_changed_cb(vc_elm_current_language_changed_cb ca
 	int ret = VC_ELM_ERROR_NONE;
 
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
 	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	}
+
 	if (false == is_vc_elm_initialized) {
 		VC_ELM_LOG_ERR("Invalid state detected! Library not initialized!");
 		return VC_ELM_ERROR_INVALID_STATE;
@@ -623,8 +770,12 @@ int vc_elm_unset_current_language_changed_cb(void)
 	int ret = VC_ELM_ERROR_NONE;
 
 	if (0 != __vc_elm_get_feature_enabled()) {
-		return VC_ERROR_NOT_SUPPORTED;
+		return VC_ELM_ERROR_NOT_SUPPORTED;
 	}
+	if (0 != __vc_elm_check_privilege()) {
+		return VC_ELM_ERROR_PERMISSION_DENIED;
+	}
+
 	if (false == is_vc_elm_initialized) {
 		VC_ELM_LOG_ERR("Invalid state detected! Library not initialized!");
 		return VC_ELM_ERROR_INVALID_STATE;
