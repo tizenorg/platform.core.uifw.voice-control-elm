@@ -21,7 +21,7 @@ INCLUDE(FindPkgConfig)
 
 # Build type
 SET(CMAKE_BUILD_TYPE "Release")
-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -g -fprofile-arcs -ftest-coverage -D_GNU_SOURCE")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -g -D_GNU_SOURCE")
 
 ADD_DEFINITIONS("-DVOICE_LIBDIR=\"${LIBDIR}\"")
 

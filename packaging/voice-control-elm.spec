@@ -42,7 +42,7 @@ voice-control-elm library development headers
 cp %{SOURCE1001} %{SOURCE1002} .
 
 %build
-export LDFLAGS+="-Wl,--rpath=%{_libdir} -Wl,--hash-style=both -Wl,--as-needed,-lgcov"
+export LDFLAGS+="-Wl,--rpath=%{_libdir} -Wl,--hash-style=both -Wl,--as-needed"
 rm -rf objdir
 mkdir objdir
 
