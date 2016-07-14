@@ -144,7 +144,7 @@ static int __vc_elm_check_privilege()
 		VC_ELM_LOG_ERR("[ERROR] Permission is denied");
 		return VC_ELM_ERROR_PERMISSION_DENIED;
 	} else if (-1 == g_privilege_allowed) {
-		if (false == __check_privilege_initialize()){
+		if (false == __check_privilege_initialize()) {
 			VC_ELM_LOG_ERR("[ERROR] privilege initialize is failed");
 			return VC_ELM_ERROR_PERMISSION_DENIED;
 		}
