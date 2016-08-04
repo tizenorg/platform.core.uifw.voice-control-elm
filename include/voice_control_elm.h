@@ -608,7 +608,7 @@ int vc_elm_set_current_language_changed_cb(vc_elm_current_language_changed_cb ca
 int vc_elm_unset_current_language_changed_cb(void);
 
 
-#ifdef _cplusplus
+#ifdef __cplusplus
 }
 #endif
 
